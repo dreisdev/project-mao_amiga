@@ -1,112 +1,181 @@
-import './footer.css';
-import '../../css/style.css';
-import '../../css/bootstrap.css';
-import '../../css/font-awesome.css';
-
-import Foot_Logo from '../../assets/logo-mao-amiga.png';
-
+import './footer.css'
+import Logo from '../../assets/Logo-mao-amiga.png'
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import '../../utils/fontAwesomeIcons'
-import { faEnvelope, faHeart, faMapMarked, faPhone } from '@fortawesome/free-solid-svg-icons';
-
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faHeart, faMapLocation, faPhone } from '@fortawesome/free-solid-svg-icons';
 
-
-
-
-
-const footer = () => {
+const Footer = () => {
 
     const currentYear = new Date().getFullYear();
 
     return (
 
-        <footer className="site-footer">
-            <div className="footer-widgets">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 col-md-6 col-lg-3">
-                            <div className="foot-about">
-                                <h2><a className="foot-logo" href="#"> <img className="logo-foot" src={Foot_Logo} alt /> </a></h2>
-                                {/* <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit. Mauris temp us vestib ulum
-                                            mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus vestib
-                                            ulum mauris.Lorem ipsum dolo.</p> */}
-                                <ul className="d-flex flex-wrap align-items-center">
-                                    <li><a href="https://www.instagram.com/maoamiga_aquiraz/"><FontAwesomeIcon icon={faInstagram} className="fa fa-pinterest-p" /></a></li>
-                                    <li><a href="#"><FontAwesomeIcon icon={faFacebook} className="fa fa-facebook" /></a></li>
+        <>
+            <div className="container-footer">
 
-                                </ul>
-                            </div>
+                <footer className="site-footer">
+
+                    <div className="foot-about">
+
+
+
+                        <div>
+
+                            <img src={Logo} alt="Logo" />
+
                         </div>
-                        <div className="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
-                            <h2>Links</h2>
-                            <ul>
-                                <li><a href="#">Política de Privacidade</a></li>
-                                <li><a href="#">Venha ser um voluntário</a></li>
-                                <li><a href="#">Doação</a></li>
-                                <li><a href="#">Testemunhos</a></li>
-                                <li><a href="#">Causas</a></li>
-                                <li><a href="#">Portfolio</a></li>
-                                <li><a href="#">Eventos</a></li>
-                            </ul>
+
+                        <div>
+
+                            <NavLink to="https://www.facebook.com/maoamiga.ywam/" target="_blank">
+                                <FontAwesomeIcon className="facebook" icon={faFacebook} />
+                            </NavLink>
+
+                            <NavLink to="https://www.instagram.com/maoamiga_aquiraz/" target="_blank">
+                                <FontAwesomeIcon className="instagram" icon={faInstagram} />
+                            </NavLink>
+
                         </div>
-                        <div className="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
-                            <div className="foot-latest-news">
-                                <h2>Últimos Eventos</h2>
-                                <ul>
-                                    <li>
-                                        <h3><a href="#">A new cause to help</a></h3>
-                                        <div className="posted-date">MArch 12, 2018</div>
-                                    </li>
-                                    <li>
-                                        <h3><a href="#">We love to help people</a></h3>
-                                        <div className="posted-date">MArch 12, 2018</div>
-                                    </li>
-                                    <li>
-                                        <h3><a href="#">The new ideas for helping</a></h3>
-                                        <div className="posted-date">MArch 12, 2018</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
-                            <div className="foot-contact">
-                                <h2>Contato</h2>
-                                <ul>
-                                    <li> <FontAwesomeIcon icon={faPhone} className="fa fa-phone" /> <span>+55 85 98816-1197</span></li>
-                                    <li> <FontAwesomeIcon icon={faEnvelope} className="fa fa-envelope" /> <span>maoamiga@email.com</span>
-                                    </li>
-                                    <li> <FontAwesomeIcon icon={faMapMarked} className="fa fa-map-marker" /><span>Chacara da prainha 61700-000 Aquiraz, CE</span></li>
-                                </ul>
-                            </div>
-                            <div className="subscribe-form">
-                                <form className="d-flex flex-wrap align-items-center">
-                                    <input type="email" placeholder="Your email" />
-                                    <input type="submit" value="send" />
-                                </form>
-                            </div>
-                        </div>
+
+
+
                     </div>
-                </div>
-            </div>
-            <div className="footer-bar">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <p className="m-0">
-                                Copyright &copy;{currentYear} All rights reserved | This website was made with <FontAwesomeIcon icon={faHeart} className="fa fa-heart-o" aria-hidden="true" /> by <a
-                                    href="https://github.com/dreisdev" target="_blank" rel='noreferrer'>Diego Reis</a>
-                            </p>
-                        </div>
+
+                    <div className="foot-links">
+
+                        <h2>Links</h2>
+
+                        <ul>
+                            <li >
+
+                                <NavLink to="/">
+                                    Página Inicial
+                                </NavLink>
+
+                            </li>
+
+                            <li >
+
+                                <NavLink to="/about">
+                                    Sobre Nós
+                                </NavLink>
+
+                            </li>
+                            <li >
+
+                                <NavLink to="/projects">
+                                    Projetos
+                                </NavLink>
+
+                            </li>
+                            <li >
+
+                                <NavLink to="/gallery">
+                                    Galeria
+                                </NavLink>
+
+                            </li>
+                            <li >
+
+                                <NavLink to="/events">
+                                    Eventos
+                                </NavLink>
+
+                            </li>
+                            <li >
+
+                                <NavLink to="/contacts">
+                                    Contato
+                                </NavLink>
+
+                            </li>
+
+                        </ul>
+
+
+
                     </div>
-                </div>
+
+                    <div className="foot-latest-events">
+
+                        <h2>Últimos Eventos</h2>
+
+                        <div className="latest-events">
+                            <span>Dias das Crianças</span>
+                            <h3>Outubro, 2023</h3>
+                        </div>
+
+                        <div className="latest-events">
+                            <span>Passeio Parque da Cidade</span>
+                            <h3>Setembro, 2023</h3>
+                        </div>
+
+                        <div className="latest-events">
+                            <span>Gincana</span>
+                            <h3>Agosto, 2023</h3>
+                        </div>
+
+
+
+                    </div>
+
+                    <div className="foot-contact">
+
+                        <h2>Contato</h2>
+
+                        <div className="icon">
+
+                            <span>
+                                <FontAwesomeIcon className="phone" icon={faPhone} />
+                                +55 85 8888-8888
+                            </span>
+
+                        </div>
+
+                        <div className="icon">
+
+                            <span>
+                                <FontAwesomeIcon className="envelope" icon={faEnvelope} />
+                                maoamiga@email.com
+                            </span>
+
+                        </div>
+
+
+
+                        <div className="icon">
+
+                            <FontAwesomeIcon className="location" icon={faMapLocation} />
+
+                            <span className="break">
+
+                                Chacara da prainha, <br /> Aquiraz, CE, Brazil
+
+                            </span>
+
+                        </div>
+
+                        <input className="input-text" type="text" placeholder="Digite seu e-mail" />
+                        <input className="input-btn" type="button" value="Enviar" />
+
+                    </div>
+
+
+
+                </footer>
+
             </div>
-        </footer>
 
+            <footer className="site-footer-bar">
 
+                Copyright ©{currentYear} All rights reserved | This template is made with
+                <FontAwesomeIcon icon={faHeart} /> by <NavLink to="https://github.com/dreisdev" target="blank" >Diego Reis</NavLink>
 
+            </footer>
+
+        </>
     )
 }
 
-export default footer
+export default Footer;

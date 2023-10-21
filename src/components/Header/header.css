@@ -1,0 +1,119 @@
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 96px;
+    /* background: pink; */
+
+}
+
+.site-logo img {
+
+    margin-top: 10px;
+    height: 115px;
+}
+
+.site-pages {
+    text-align: right;
+
+}
+
+.site-pages ul {
+    list-style: none;
+}
+
+.site-pages-mobile ul {
+    list-style: none;
+}
+
+.site-pages-mobile ul {
+
+    display: none;
+}
+
+.site-pages li {
+    display: inline;
+    margin-right: 20px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
+.site-pages ul li a.current,
+.site-pages ul li a.active {
+    border-bottom: 3px solid #ff5a00;
+    color: #ff5a00;
+}
+
+.site-pages ul li a:not(.current):hover {
+    border-bottom: 3px solid #ff5a00;
+    color: #ff5a00;
+}
+
+.site-pages ul li a {
+    text-decoration: none;
+    padding: 49px 0 36px;
+    color: #262626;
+    transition: color .35s;
+}
+
+.site-pages-mobile {
+    display: none;
+    position: absolute;
+    top: 23%;
+    left: 0;
+    background-color: rgba(255, 89, 0, 0.45);
+
+    z-index: 999;
+    width: 100%;
+}
+
+.site-pages-mobile a {
+    color: #ff5a00;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+
+.site-pages-mobile a:hover {
+    background-color: #ff5a00;
+    color: #fff;
+}
+
+.site-pages-mobile li {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 992px) {
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .site-pages ul {
+
+        display: none;
+    }
+
+    .site-pages-mobile ul {
+
+        display: block;
+    }
+
+    .bar {
+        border: 2px solid #ff5a00;
+        margin: 5px;
+        width: 30px;
+    }
+
+}

@@ -6,7 +6,7 @@
 }
 
 @font-face {
-  font-family: 'Rubik';
-  src: local('Rubik'),
-    url("./fonts/Rubik/Rubik-Regular.ttf") format("truetype");
+  font-family: 'Montserrat';
+  src: local('Montserrat'),
+    url("./fonts/Montserrat-Regular.ttf") format("truetype");
 }
