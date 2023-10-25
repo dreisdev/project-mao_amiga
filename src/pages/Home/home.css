@@ -1,5 +1,259 @@
-.container-home {
+/* .container-home {
 
-    background: rgb(150, 113, 187);
+    height: 1500px;
+
+} */
+
+.slide-item {
+    width: 100%;
     height: 500px;
+    object-fit: cover;
+}
+
+.banner-home {
+    position: relative;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(50%, -50%);
+    text-align: center;
+}
+
+.text-overlay-2 {
+
+    position: absolute;
+    top: 38%;
+    left: 12%;
+    transform: translate(50%, -50%);
+    text-align: center;
+
+}
+
+.buttons-overlay {
+    position: absolute;
+    top: 58%;
+    left: 18%;
+    transform: translate(50%, -50%);
+    text-align: center;
+
+}
+
+.text-home {
+
+    color: white;
+    font-size: 24px;
+    font-family: "Montserrat";
+    font-weight: bold;
+
+}
+
+.text-home-2 {
+    color: white;
+    font-size: 18px;
+    font-family: "Montserrat";
+
+
+}
+
+button {
+    background-color: #FF5A00;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Montserrat";
+
+}
+
+.swiper-button-next {
+    color: #FF5A00;
+    margin-right: 100px;
+
+}
+
+.swiper-button-prev {
+    color: #FF5A00;
+    margin-left: 100px;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #FF5A00;
+}
+
+
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    /* background: #FF5A00; */
+
+
+
+}
+
+.cards-projects {
+    width: 350px;
+    height: 322.55px;
+    padding: 40px;
+    border-radius: 24px;
+    background: #ecf2f5;
+    text-align: center;
+    transition: all .35s;
+
+
+}
+
+.figure-cards {
+    width: 50px;
+    height: 50px;
+}
+
+.title {
+    font-family: "Montserrat";
+    margin-top: 28px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #262626;
+}
+
+.content {
+    font-family: "Montserrat";
+    margin: 20px;
+    font-size: 14px;
+    color: #595858;
+}
+
+
+.swiper-cards {
+
+    /* background-color: #dfc1b0; */
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 40px;
+}
+
+.cards-projects:hover {
+    background-color: #FF5A00;
+
+}
+
+.cards-projects h3:hover,
+.cards-projects p:hover {
+
+    color: #ffffff;
+}
+
+
+.history-container {
+    position: relative;
+    padding: 96px 0;
+    background: linear-gradient(rgba(70, 34, 14, 0.6), rgba(43, 18, 5, 0.8)),
+        url(../../assets/history-bg.jpg) no-repeat center;
+    background-size: cover;
+    z-index: 99;
+    height: 597.28px;
+
+}
+
+.history-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: rgba(59, 25, 3, 0.20);
+}
+
+.content-history {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 15px;
+    margin-left: 15px;
+    /* background-color: #FF5A00; */
+    /* width: 1800px; */
+
+    justify-content: space-around;
+
+}
+
+.title-history {
+    font-family: "Montserrat";
+    position: relative;
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.title-history::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    border-radius: 2px;
+    background: #ff5a00;
+}
+
+.text-content {
+    font-family: "Montserrat";
+    font-size: 14px;
+    line-height: 2;
+    color: #b7b7b7;
+    margin-top: 3rem;
+}
+
+.button-history {
+    padding: 18px 40px;
+    border: none;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    color: #ffffff;
+    outline: none;
+    margin: 30px 30px 30px 0;
+
+}
+
+.button-style {
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+.row-history-a {
+    width: 50%;
+
+    margin-left: 5%;
+
+    text-align: justify;
+}
+
+.history-bg {
+    display: flex;
+    width: 540px;
+    height: 381px;
+}
+
+.teste-a {
+    height: 500px;
+    background-color: #b7b7b7;
+}
+
+.teste-b {
+    height: 500px;
+    background-color: #e9bdbd;
 }

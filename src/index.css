@@ -3,6 +3,17 @@
   margin: 0;
   padding: 0;
 
+
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+body {
+  overflow-y: auto;
+  /* Adicione a barra de rolagem vertical de volta */
 }
 
 @font-face {
