@@ -28,7 +28,7 @@ jobs:
           npm run test --if-present
 
       - name: Unzip artifact for deployment
-        run: Expand-Archive -Path release.zip -DestinationPath . -Force
+        run: Compress-Archive -Path .\* -DestinationPath release.zip -Force
 
 
 
