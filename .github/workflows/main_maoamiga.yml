@@ -49,11 +49,10 @@ jobs:
         with:
           name: node-app
 
-      - name: Install 7-Zip
-        run: choco install 7zip.commandline
-
       - name: Zip artifact for deployment
-        run: 7z a -r release.zip ./*
+        run: |
+          Compress-Archive -Path ./* -DestinationPath release.zip -Force
+
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
