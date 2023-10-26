@@ -47,7 +47,7 @@ const Home = () => {
         },
         {
             id: '5', image: img_5, title: "Informática",
-            content: "Uma das nossas alegrias é poder ensinar as crianças a palavra de Deus, mas também ensina-las a desenvolverem algo para seu futuro. Hoje temos uma sala de informática em nosso projeto que atende aproximadamente 20 adolescentes. "
+            content: "Uma das nossas alegrias é poder ensinar as crianças a palavra de Deus, mas também ensina-las a desenvolverem algo para seu futuro. Hoje temos uma sala de informática em nosso projeto que atende aproximadamente 20 adolescentes."
         },
         {
             id: '6', image: img_6, title: "Marcenaria",
