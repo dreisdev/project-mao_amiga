@@ -30,8 +30,10 @@ jobs:
       - name: Zip artifact for deployment
         run: |
           Set-Location -Path $GITHUB_WORKSPACE
+          Remove-Item -Path .\release.zip -ErrorAction Ignore  # Remove o arquivo ZIP anterior, se existir
           Add-Type -AssemblyName System.IO.Compression.FileSystem
           [System.IO.Compression.ZipFile]::CreateFromDirectory('.', 'release.zip')
+
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
