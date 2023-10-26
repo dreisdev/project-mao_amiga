@@ -91,7 +91,7 @@ const Home = () => {
                             </div>
                             <div className="buttons-overlay">
                                 <button>Botão aqui</button>
-                                <button>Botão aqui</button>
+                                <button>Botão aqui </button>
                             </div>
 
 
