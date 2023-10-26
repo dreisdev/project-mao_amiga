@@ -50,7 +50,7 @@ jobs:
           name: node-app
 
       - name: Zip artifact for deployment
-        run: Compress-Archive -Path ./* -DestinationPath release.zip
+        run: Compress-Archive -Path ./* -DestinationPath release.zip -Force
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
