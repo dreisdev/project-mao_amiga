@@ -90,8 +90,8 @@ const Home = () => {
                                 <span className="text-home-2"> Contribua com nossos projetos e faça uma criança feliz.</span>
                             </div>
                             <div className="buttons-overlay">
-                                <button>Botão aqui</button>
-                                <button>Botão aqui </button>
+                                <button>Botão 1 </button>
+                                <button>Botão 2 </button>
                             </div>
 
 
