@@ -248,10 +248,214 @@ button {
     height: 381px;
 }
 
-.teste-a {
-    height: 500px;
-    background-color: #b7b7b7;
+.events-container {
+    display: flex;
+    font-family: "Montserrat";
+    padding: 96px 0;
+    margin-left: 15%;
+    margin-right: 15%;
+
 }
+
+/* .events-container {
+    display: flex;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+} */
+
+
+
+
+
+.box-events {
+    display: flex;
+    flex-direction: column;
+
+    /* padding-right: 15px;
+    padding-left: 15px; */
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.box-events p {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: "Montserrat";
+    font-size: 14px;
+    color: #929191;
+}
+
+
+
+.title-next-events h1 {
+    font-family: "Montserrat";
+    position: relative;
+    padding-bottom: 20px;
+    font-size: 36px;
+    font-weight: 600;
+    color: #262626;
+}
+
+.title-next-events h1::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 64px;
+    height: 4px;
+    border-radius: 2px;
+    background: #ff5a00;
+}
+
+.box-next-events {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+
+.content-events {
+    display: flex;
+
+
+}
+
+/* .content-events h2, */
+.content-events span,
+.content-events p,
+.content-events {
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+    /* Adicione o espaçamento desejado entre os elementos */
+}
+
+
+
+.title-events {
+    margin-bottom: 5px;
+
+}
+
+
+.box-content-events h2 {
+    font-family: "Montserrat";
+    font-size: 18px;
+}
+
+.box-content-events span {
+    font-family: "Montserrat";
+    font-size: 11px;
+    color: #262626;
+}
+
+.box-content-events {
+
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+
+
+
+
+.about-events a {
+    font-family: "Montserrat";
+    text-decoration: none;
+    color: #FF5A00;
+    margin: 10px 0px 0px;
+}
+
+
+
+.box-events-active {
+    display: flex;
+    flex-direction: column;
+
+    /* padding-right: 15px;
+    padding-left: 15px; */
+    margin-right: auto;
+    margin-left: 15px;
+
+}
+
+.content-events-2 {
+    display: flex;
+    background-color: #ecf2f5;
+    padding: 40px 24px;
+
+
+
+
+}
+
+.donate-events {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: "Montserrat";
+    font-size: 14px;
+    color: #929191;
+}
+
+.donate-events p {
+    margin-top: 10px;
+}
+
+.donate-events button {
+    margin-top: 50px;
+    margin-left: 25%;
+    margin-right: 25%;
+    cursor: pointer;
+}
+
+.progress-bar {
+
+    background-color: #FF5A00;
+}
+
+.custom-progress {
+    margin-top: 50px;
+
+
+}
+
+.financial-goals {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.financial-goals span {
+    font-family: "Montserrat";
+    font-size: 14px;
+    color: #929191;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .teste-b {
     height: 500px;

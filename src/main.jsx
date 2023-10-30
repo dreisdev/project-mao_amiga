@@ -11,6 +11,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home/home';
 import About from './pages/About/about';

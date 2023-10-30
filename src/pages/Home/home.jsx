@@ -1,68 +1,37 @@
-import "./home.css"
-import { Swiper, SwiperSlide } from "swiper/react"
+import "./home.css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import Banner_1 from "../../assets/banner-1.jpg"
-import Banner_2 from "../../assets/banner-2.jpg"
-import Banner_3 from "../../assets/banner-3.jpg"
+import { dataImages, dataActivities } from "../../Data/dataGeral";
 
-import img_1 from "../../assets/ref-escolar.png"
-import img_2 from "../../assets/artes.png"
-import img_3 from "../../assets/violao.png"
-import img_4 from "../../assets/futebol.png"
-import img_5 from "../../assets/computadores.png"
-import img_6 from "../../assets/carpintaria.png"
-import img_7 from "../../assets/eng.png"
-import img_8 from "../../assets/biblia.png"
+import History from "../../assets/history-bg-home.jpg";
+import { NavLink } from "react-router-dom";
 
-import History from "../../assets/history-bg-home.jpg"
-import { NavLink } from "react-router-dom"
+import { useState } from "react";
+import Modal from "../../components/Modal/modal";
 
+import ImageEvents from "../../assets/event-1.jpg";
+import ImageEvents_2 from "../../assets/featured-causes.jpg";
+import ProgressBar from "react-bootstrap/esm/ProgressBar";
 
 const Home = () => {
+    const [isModalOpen, setModalOpen] = useState(false);
 
-    const dataImages = [
-        { id: '1', image: Banner_1 },
-        { id: '2', image: Banner_2 },
-        { id: '3', image: Banner_3 }
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
+    const raised = 9000;
+    const goal = 15880;
+
+    const now = (raised / goal) * 100;
 
 
-    ]
 
-    const dataActivities = [
-        {
-            id: '1', image: img_1, title: "Reforço Escolar",
-            content: "Uma das nossas principais ferramentas de transformação social é o reforço escolar. Acreditamos que cada criança tem um potencial incrível, e que com ajuda, orientação e incentivo eles podem alcançar seus sonhos."
-        },
-        {
-            id: '2', image: img_2, title: "Artes",
-            content: "Artes clássicas”, a pintura, a escultura, a música, a literatura, a dança e a arquitetura, se destacam pelo apelo emocional e valor estético que provocam a quem as observa."
-        },
-        {
-            id: '3', image: img_3, title: "Violão",
-            content: "Sabia que temos aulas de violão aqui no mão amiga? Os nossos alunos tem a oportunidade de semanalmente aprenderem a tocar violão. Além disso, os menores têm oficina de musicalização. "
-        },
-        {
-            id: '4', image: img_4, title: "Futebol",
-            content: "Todas as quartas temos futebol aqui no Mão amiga. O esporte é uma porta para oportunidades maiores na vida. Além de uma estratégia para manter a saúde em dia."
-        },
-        {
-            id: '5', image: img_5, title: "Informática",
-            content: "Uma das nossas alegrias é poder ensinar as crianças a palavra de Deus, mas também ensina-las a desenvolverem algo para seu futuro. Hoje temos uma sala de informática em nosso projeto que atende aproximadamente 20 adolescentes."
-        },
-        {
-            id: '6', image: img_6, title: "Marcenaria",
-            content: "Aulas de Marcenaria"
-        },
-        {
-            id: '7', image: img_7, title: "Inglês",
-            content: "Aulas de inglês"
-        },
-        {
-            id: '8', image: img_8, title: "Discipulado",
-            content: "Ensina a criança o caminho em que deve andar... Essa frase define nosso trabalho. Além do ensino tradicional, semanalmente estudamos a bíblia e aprendemos como podemos viver a palavra de Deus de uma forma prática."
-        },
 
-    ]
     return (
         <div className="container-home">
 
@@ -118,9 +87,6 @@ const Home = () => {
                         delay: 10000,
                         disableOnInteraction: false,
                     }}
-
-
-
 
                 >
 
@@ -180,7 +146,106 @@ const Home = () => {
 
             </section>
 
-            <section className="teste-a">
+            <section className="events-container">
+
+                <div className="box-events">
+
+                    <div className="title-next-events"> <h1> Próximos Eventos </h1> </div>
+
+                    <div className="box-next-events">
+
+
+                        <div className="content-events">
+
+                            <img className="image-events" src={ImageEvents} alt="image-events" />
+
+                            <div className="box-content-events">
+                                <h2 className="title-events">Arrecadação de fundos para crianças</h2>
+
+                                <span className="date-events">25 de agosto de 2018</span>
+
+                                <span > | </span>
+
+                                <span className="local-events">Salão de Baile de Nova York</span>
+
+                                <div className="about-events">
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus vestib ulum mauris.</p>
+                                    <a href="#" onClick={openModal}>
+                                        Saiba Mais
+                                    </a>
+
+                                    <Modal isOpen={isModalOpen} onClose={closeModal} />
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div className="box-events-active">
+
+                    <div className="title-next-events"> <h1> Causas em Destaque </h1> </div>
+
+                    <div className="box-next-events">
+
+
+                        <div className="content-events-2">
+
+                            <img className="image-events" src={ImageEvents_2} alt="image-events" />
+
+                            <div className="box-content-events">
+                                <h2 className="title-events">Arrecadação de fundos para crianças</h2>
+
+                                <span className="date-events">25 de agosto de 2018</span>
+
+                                <span > | </span>
+
+                                <span className="local-events">Salão de Baile de Nova York</span>
+
+                                <div className="donate-events">
+
+                                    <p className="donate-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, laudantium!</p>
+
+                                    <button className="donate-btn">Doe para o projeto</button>
+
+
+
+                                    <ProgressBar now={now} label={`${now.toFixed(0)}%`} className="custom-progress" />
+
+                                    <div className="financial-goals">
+
+                                        <div className="raised">
+                                            <span>Arrecadado: {raised} </span>
+                                        </div>
+
+                                        <div className="goal">
+                                            <span>Meta: {goal} </span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
 
             </section>
 
