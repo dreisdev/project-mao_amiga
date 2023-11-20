@@ -12,6 +12,9 @@ import Modal from "../../components/Modal/modal";
 import ImageEvents from "../../assets/event-1.jpg";
 import ImageEvents_2 from "../../assets/featured-causes.jpg";
 import ProgressBar from "react-bootstrap/esm/ProgressBar";
+import ImageRecord from "../../assets/criancas.png";
+import Donation from "../../assets/doacao.png";
+import Education from "../../assets/educacao.png";
 
 const Home = () => {
     const [isModalOpen, setModalOpen] = useState(false);
@@ -24,8 +27,8 @@ const Home = () => {
         setModalOpen(false);
     };
 
-    const raised = 9000;
-    const goal = 15880;
+    const raised = 5000;
+    const goal = 8000;
 
     const now = (raised / goal) * 100;
 
@@ -40,6 +43,10 @@ const Home = () => {
                     slidesPerView={1}
                     pagination={{ clickable: true }}
                     navigation
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    }}
 
 
                 >
@@ -249,7 +256,68 @@ const Home = () => {
 
             </section>
 
-            <section className="teste-b">
+            <section className="container-resume">
+                <div className="box-resume">
+
+                    <div className="title-resume">
+                        <h1>
+                            Adoramos ajudar todas as crianças que têm problemas no mundo.
+                            Após 15 anos temos muitos objetivos alcançados.
+                        </h1>
+
+                        <p className="resume-description">
+                            Dolor sit amet, consectetur adipiscing elit. Mauris tempus vestib ulum mauris quis aliquam. Lorem ipsum dolor sit amet.
+                        </p>
+                    </div>
+
+
+                </div>
+
+                <div className="box-record">
+
+                    <div className="box-content-resume">
+                        <img className="image-record" src={ImageRecord} alt="imagerecord" />
+
+                        <h1 className="result">
+                            +60...
+                        </h1>
+
+                        <p className="result-description">
+                            Crianças alcançadas.
+                        </p>
+
+                    </div>
+
+                    <div className="box-content-resume">
+
+                        <img className="image-record" src={Donation} alt="donation" />
+
+                        <h1 className="result">
+                            23
+                        </h1>
+
+                        <p className="result-description">
+                            Anos de atuação.
+                        </p>
+
+                    </div>
+
+                    <div className="box-content-resume">
+                        <img className="image-record" src={Education} alt="education" />
+
+                        <h1 className="result">
+                            +60...
+                        </h1>
+
+                        <p className="result-description">
+                            Crianças recebendo reforço escolar.
+                        </p>
+
+                    </div>
+
+
+
+                </div>
 
             </section>
 
