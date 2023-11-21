@@ -11,6 +11,19 @@ import img_6 from "../assets/carpintaria.png"
 import img_7 from "../assets/eng.png"
 import img_8 from "../assets/biblia.png"
 
+import Event_1 from "../assets/Events/event-1.jpg"
+import Event_2 from "../assets/Events/event-2.jpg"
+import Event_3 from "../assets/Events/event-3.jpg"
+import Event_4 from "../assets/Events/event-4.jpg"
+import Event_5 from "../assets/Events/event-5.jpg"
+import Event_6 from "../assets/Events/event-6.jpg"
+import Event_7 from "../assets/Events/event-7.jpg"
+import Event_8 from "../assets/Events/event-8.jpg"
+import Event_9 from "../assets/Events/event-9.jpg"
+import Event_10 from "../assets/Events/event-9.jpg"
+
+
+
 
 const dataImages = [
     { id: '1', image: Banner_1 },
@@ -56,8 +69,55 @@ const dataActivities = [
 
 ]
 
+const dataGallery = [
+    {
+        id: '1', image: Event_1, title: "Passeio Parque",
+        content: "passeio ao parque da cidade"
+    },
+    {
+        id: '2', image: Event_2, title: "Gincana",
+        content: "passeio ao parque da cidade"
+    },
+    {
+        id: '3', image: Event_3, title: "Brincadeira",
+        content: "Dias da crianças "
+    },
+    {
+        id: '4', image: Event_4, title: "Futebol",
+        content: " Tarde de futebol"
+    },
+    {
+        id: '5', image: Event_5, title: "Informática",
+        content: "Desafio"
+    },
+    {
+        id: '6', image: Event_6, title: "Marcenaria",
+        content: "Oficina de artes"
+    },
+    {
+        id: '7', image: Event_7, title: "Inglês",
+        content: "Aulas de inglês"
+    },
+    {
+        id: '8', image: Event_8, title: "Dia do Livro",
+        content: "Tarde de leitura"
+    },
+
+    {
+        id: '9', image: Event_9, title: "Passeio ao zoológico",
+        content: "Tarde com os animais."
+    },
+
+    {
+        id: '10', image: Event_10, title: "Brincadeiras",
+        content: "Tarde de brincadeiras."
+    },
+
+]
+
 export {
     dataImages,
-    dataActivities
+    dataActivities,
+    dataGallery
 
 }
