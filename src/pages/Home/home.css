@@ -271,6 +271,7 @@ button {
     display: flex;
     width: 540px;
     height: 381px;
+    border-radius: 10px;
 }
 
 .events-container {
