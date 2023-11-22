@@ -22,6 +22,11 @@ import Event_8 from "../assets/Events/event-8.jpg"
 import Event_9 from "../assets/Events/event-9.jpg"
 import Event_10 from "../assets/Events/event-9.jpg"
 
+import DataEvent_1 from "../assets/DataEvents/Event-1.jpg"
+import DataEvent_2 from "../assets/DataEvents/Event-2.jpg"
+import DataEvent_3 from "../assets/DataEvents/Event-3.jpg"
+import DataIcon from "../assets/DataEvents/donate-icon.png"
+
 
 
 
@@ -115,9 +120,30 @@ const dataGallery = [
 
 ]
 
+const dataEvents = [
+    {
+        id: '1', bannerEvent: DataEvent_1, title: "Dias das Crianças",
+        article: "Grande festa dos dias das crianças",
+        icon: DataIcon
+    },
+    {
+        id: '2', bannerEvent: DataEvent_2, title: "Dias das Crianças",
+        article: "Grande festa dos dias das crianças",
+        icon: DataIcon
+    },
+    {
+        id: '3', bannerEvent: DataEvent_3, title: "Dias das Crianças",
+        article: "Grande festa dos dias das crianças",
+        icon: DataIcon
+    },
+
+]
+
 export {
     dataImages,
     dataActivities,
-    dataGallery
+    dataGallery,
+    dataEvents
+
 
 }

@@ -44,7 +44,7 @@ const Gallery = () => {
 
                             <div className="cards-projects">
                                 <figure>
-                                    <img className="figure-cards-galley" src={item.image} alt="img-1" />
+                                    <img className="figure-cards-gallery" src={item.image} alt="img-1" />
 
                                 </figure>
 

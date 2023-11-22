@@ -1,0 +1,147 @@
+.box-page-events {
+    display: flex;
+    padding: 96px 0;
+    margin-left: 21%;
+    margin-right: 21%;
+    gap: 50px;
+
+}
+
+.left-box-event {
+    width: 100%;
+}
+
+.content-left-box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+
+}
+
+.box-date-title {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+.read-more {
+    padding: 18px 40px;
+    width: 25%;
+}
+
+.normal-size {
+    width: 754px;
+}
+
+.small-size {
+    width: 72px;
+    height: 72px;
+}
+
+.right-box-event {
+    display: flex;
+    width: 100%;
+}
+
+.content-right-box {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    gap: 20px;
+    /* background-color: aquamarine; */
+
+}
+
+.content-right-box h1 {
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.last-events {
+    display: flex;
+    gap: 25px;
+
+}
+
+.last-events-content {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.last-events-content span {
+    font-family: "Montserrat";
+    color: #262626;
+    font-size: 14px;
+}
+
+.last-events-content h3 {
+    font-family: "Montserrat";
+    font-size: 12px;
+    color: #ff5a00;
+}
+
+.content-next-events {
+    margin-top: 100%;
+    /* background-color: #ff5a00; */
+}
+
+.image-page-events {
+    width: 106px;
+    height: 106px;
+}
+
+.content-page-events {
+    display: flex;
+
+
+}
+
+
+.content-page-events span,
+.content-page-events {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.content-page-events p {
+    font-size: 11px;
+}
+
+.about-page-events a {
+    font-family: "Montserrat";
+    text-decoration: none;
+    color: #929191;
+    margin: 10px 0px 0px;
+}
+
+.donate-page-events {
+    width: 50px;
+    height: 59px;
+}
+
+.date-title span {
+    font-family: "Montserrat";
+    font-size: 14px;
+    font-weight: 500;
+    color: #ff5a00;
+}
+
+.date-title h2 {
+    font-family: "Montserrat";
+    font-size: 24px;
+    font-weight: 500;
+    color: #262626;
+
+
+}
+
+.text-article {
+    font-family: "Montserrat";
+    font-size: 14px;
+    color: #929191;
+}
