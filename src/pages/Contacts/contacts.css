@@ -1,0 +1,92 @@
+.box-contacts {
+    display: flex;
+    padding: 96px 0px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.left-box-contacts {
+    width: 100%;
+}
+
+.contacts-title {
+    font-family: "Montserrat";
+    font-size: 24px;
+    font-weight: 500;
+    color: #262626;
+    margin: 0px 0px 8px;
+}
+
+.contacts-text {
+    font-family: "Montserrat";
+    font-size: 14px;
+    font-weight: 500;
+    color: #929191;
+    margin: 20px 0px 16px;
+}
+
+.contacts-icons {
+    display: flex;
+    gap: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.facebook-page-contacts,
+.instagram-page-contacts {
+    display: flex;
+    color: orangered;
+    transition: color 0.3s;
+    margin: 0 auto;
+    justify-content: space-between;
+
+}
+
+.facebook-page-contacts:hover,
+.instagram-page-contacts:hover {
+    color: orangered;
+    background-color: #edf3f5;
+}
+
+.right-box-contacts {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 35px 20px 55px;
+    /* margin-top: 96px; */
+    background: #edf3f5;
+    border-radius: 10px;
+}
+
+.contacts-form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 50px;
+
+}
+
+.input-name,
+.input-email {
+    width: 595px;
+    height: 44px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+
+}
+
+.message {
+    width: 595px;
+    height: 236px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+}
+
+.button-contact {
+    width: 50%;
+    margin: 0 auto;
+}
