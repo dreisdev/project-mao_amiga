@@ -1,0 +1,27 @@
+.loading-pix {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 9%;
+    left: 10%;
+    background-color: rgba(222, 77, 20, 0.65);
+    color: #fff;
+    border-radius: 10px;
+}
+
+.loading-pix h1 {
+    position: absolute;
+
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading-pix button {
+    position: absolute;
+    width: 80%;
+
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,26 @@
+.payment-card-title h1 {
+    background-color: aqua;
+}
+
+.element-card {
+    margin: 0 auto;
+    width: 50%;
+
+}
+
+.element-card-content {
+    margin-top: 5%;
+}
+
+#nameCustomer,
+#amountCard {
+
+    width: 300px;
+    height: 44px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+
+
+}

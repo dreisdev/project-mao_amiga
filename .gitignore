@@ -9,6 +9,8 @@ lerna-debug.log*
 
 node_modules
 ProgressBar
+src/components/Stripe/teste_card.jsx
+Backend
 .github/workflows/rascunho.yml
 dist-ssr
 *.local

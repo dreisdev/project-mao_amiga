@@ -21,6 +21,21 @@ import Gallery from './pages/Gallery/gallery';
 import Events from './pages/Events/events';
 import Contacts from './pages/Contacts/contacts';
 
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import PaymentBoleto from './components/Stripe/Payment_Boleto.jsx';
+import PaymentCard from './components/Stripe/Payment_Card.jsx';
+import PaymentPix from './components/Stripe/Payment_Pix.jsx';
+import TestePaymentCard from './components/Stripe/teste_card.jsx';
+
+import axios from "axios";
+
+const response = await axios.get('http://localhost:3000/config')
+
+
+const stripePromisse = loadStripe(`${response.data.publishableKey}`);
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,6 +64,40 @@ const router = createBrowserRouter([
       {
         path: "/contacts",
         element: <Contacts />
+      },
+      {
+        path: "/boleto",
+
+        element: (
+          <Elements stripe={stripePromisse} >
+            <PaymentBoleto />
+          </Elements>
+
+        ),
+      },
+      {
+        path: "/card",
+
+        element: (
+          <Elements stripe={stripePromisse} >
+            <PaymentCard />
+          </Elements>
+
+        ),
+      },
+      {
+        path: "/teste-card",
+
+        element: (
+          <Elements stripe={stripePromisse} >
+            <TestePaymentCard />
+          </Elements>
+
+        ),
+      },
+      {
+        path: "/pix",
+        element: <PaymentPix />
       },
     ],
   },

@@ -16,6 +16,10 @@ import ImageRecord from "../../assets/criancas.png";
 import Donation from "../../assets/doacao.png";
 import Education from "../../assets/educacao.png";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCreditCard, faFileLines } from '@fortawesome/free-solid-svg-icons';
+import { faPix } from "@fortawesome/free-brands-svg-icons";
+
 const Home = () => {
     const [isModalOpen, setModalOpen] = useState(false);
 
@@ -62,13 +66,18 @@ const Home = () => {
                                 <span className="text-home">Faça uma doação</span>
 
                             </div>
+
+
                             <div className="text-overlay-2">
-                                <span className="text-home-2"> Contribua com nossos projetos e faça uma criança feliz.</span>
+                                <span className="text-home-2"> Contribua com nossos projetos e faça uma criança feliz. Escolha como deseja fazer a sua doação.</span>
                             </div>
                             <div className="buttons-overlay">
-                                <button>Botão 1 </button>
-                                <button>Botão 2 </button>
+                                <button> <FontAwesomeIcon icon={faFileLines} /> <NavLink className="style-buttons-overlay" to="/boleto"> Boleto </NavLink>  </button>
+                                <button> <FontAwesomeIcon icon={faCreditCard} /> <NavLink className="style-buttons-overlay" to="/card"> Cartão de Crédito </NavLink> </button>
+                                <button> <FontAwesomeIcon icon={faPix} /><NavLink className="style-buttons-overlay" to="/pix"> Pix </NavLink> </button>
                             </div>
+
+
 
 
 

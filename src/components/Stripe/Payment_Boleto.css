@@ -1,0 +1,123 @@
+.stripe-container {
+    display: flex;
+    flex-direction: column;
+    /* background-color: aquamarine; */
+
+}
+
+.payment-boleto {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 20px 55px;
+    background: #ff590031;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 1%;
+}
+
+.payment-boleto h1 {
+    font-family: "Montserrat";
+    width: auto;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #FF5A00;
+    margin: 0 auto;
+
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+
+
+}
+
+label {
+    font-family: "Montserrat";
+    margin-top: 10px;
+}
+
+.stripe-form {
+    display: flex;
+    flex-direction: column;
+    padding: 96px 0px;
+    margin: 0 auto;
+}
+
+#payment-form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 21%;
+    margin-right: 21%;
+    gap: 5px;
+    align-items: center;
+}
+
+
+
+.loading {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 9%;
+    left: 10%;
+    background-color: rgba(222, 77, 20, 0.65);
+    color: #fff;
+    border-radius: 10px;
+}
+
+
+
+
+
+#name,
+#email,
+#taxId,
+#country,
+#state,
+#city,
+#postal_code,
+#line1,
+#amountBoleto {
+    width: 300px;
+    height: 44px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+
+}
+
+.btn-pay {
+    width: auto;
+    margin-top: 10px;
+
+}
+
+.btn-back-home {
+    padding: 18px 40px;
+    border-radius: 24px;
+    border: 2px solid #262626;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    outline: none;
+    margin: 30px 30px 30px 0;
+    border-color: #e9e8b4;
+    color: #ff5a00;
+    background-color: #fff;
+
+
+}
+
+.style-btn-back-home {
+    text-decoration: none;
+    color: #ff5a00;
+
+
+}
+
+.btn-back-home:hover {
+    background: linear-gradient(rgba(70, 34, 14, 0.6), rgba(43, 18, 5, 0.8));
+}

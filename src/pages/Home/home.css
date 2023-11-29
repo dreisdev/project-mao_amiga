@@ -27,7 +27,7 @@
 
     position: absolute;
     top: 38%;
-    left: 12%;
+    left: 3%;
     transform: translate(50%, -50%);
     text-align: center;
 
@@ -36,10 +36,30 @@
 .buttons-overlay {
     position: absolute;
     top: 58%;
-    left: 18%;
+    left: 14%;
     transform: translate(50%, -50%);
     text-align: center;
 
+
+}
+
+
+
+.buttons-overlay:hover {
+    background: linear-gradient(rgba(204, 123, 79, 0.6), rgba(231, 102, 32, 0.8));
+    border-radius: 10px;
+
+}
+
+.style-buttons-overlay {
+    text-decoration: none;
+    color: #f0e9e6;
+
+
+}
+
+.style-buttons-overlay:hover {
+    color: #272222;
 }
 
 .text-home {
@@ -173,8 +193,9 @@ button {
 
 }
 
-.cards-projects h3:hover,
-.cards-projects p:hover {
+
+.cards-projects:hover .title h3,
+.cards-projects:hover .content p {
 
     color: #ffffff;
 }
