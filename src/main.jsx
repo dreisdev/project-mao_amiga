@@ -26,7 +26,6 @@ import { Elements } from '@stripe/react-stripe-js';
 import PaymentBoleto from './components/Stripe/Payment_Boleto.jsx';
 import PaymentCard from './components/Stripe/Payment_Card.jsx';
 import PaymentPix from './components/Stripe/Payment_Pix.jsx';
-import TestePaymentCard from './components/Stripe/teste_card.jsx';
 
 import axios from "axios";
 
@@ -81,16 +80,6 @@ const router = createBrowserRouter([
         element: (
           <Elements stripe={stripePromisse} >
             <PaymentCard />
-          </Elements>
-
-        ),
-      },
-      {
-        path: "/teste-card",
-
-        element: (
-          <Elements stripe={stripePromisse} >
-            <TestePaymentCard />
           </Elements>
 
         ),
