@@ -2,8 +2,8 @@
 const express = require("express");
 const rotas = express();
 
-const { ConfigKey } = require("./controllers/Config/config");
-const { boletoPayment, cardPayment } = require("./controllers/Stripe/paymentIntent");
+const { ConfigKey } = require("./src/controllers/Config/config");
+const { boletoPayment, cardPayment } = require("./src/controllers/Stripe/paymentIntent");
 
 
 
