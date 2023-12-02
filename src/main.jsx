@@ -29,7 +29,7 @@ import PaymentPix from './components/Stripe/Payment_Pix.jsx';
 
 import axios from "axios";
 
-const response = await axios.get('http://localhost:3000/config')
+const response = await axios.get('https://server-maoamiga-api.cyclic.app/config')
 
 
 const stripePromisse = loadStripe(`${response.data.publishableKey}`);

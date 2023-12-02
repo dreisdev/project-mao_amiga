@@ -40,7 +40,7 @@ const DonationFormBoleto = () => {
 
             let clientSecret;
 
-            const response = await axios.post('http://localhost:3000/payment/boleto', {
+            const response = await axios.post('https://server-maoamiga-api.cyclic.app/payment/boleto', {
                 amountBoleto: amountCent,
             });
 

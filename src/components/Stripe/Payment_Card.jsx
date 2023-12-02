@@ -34,7 +34,7 @@ const DonationFormCard = () => {
 
             let clientSecret;
 
-            const response = await axios.post('http://localhost:3000/payment/card', {
+            const response = await axios.post('https://server-maoamiga-api.cyclic.app/payment/card', {
                 amountCard: amountCent,
             });
 
