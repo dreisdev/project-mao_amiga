@@ -8,6 +8,16 @@
 
 }
 
+@media screen and (max-width: 1000px) {
+    .element-card {
+        width: 100%;
+
+
+    }
+
+
+}
+
 .element-card-content {
     margin-top: 5%;
 }
@@ -22,5 +32,16 @@
     border: none;
     border-radius: 10px;
 
+}
+
+@media screen and (max-width: 1000px) {
+
+    #nameCustomer,
+    #amountCard {
+
+        width: 100%;
+
+
+    }
 
 }

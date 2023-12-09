@@ -1,5 +1,9 @@
-import { dataGallery } from "../../Data/dataGeral";
 import "./gallery.css";
+
+import { useEffect, useState } from "react";
+
+import { dataGallery } from "../../Data/dataGeral";
+
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -7,6 +11,54 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 
 const Gallery = () => {
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [cardMobile, setCardMobile] = useState(4);
+    const [spaceCard, setSpaceCard] = useState(10);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        const handleSlideView = () => {
+
+            if (windowWidth <= 500) {
+
+                setCardMobile(1);
+                setSpaceCard(200);
+
+            } else if (windowWidth > 501 && windowWidth < 968) {
+                setCardMobile(2);
+                setSpaceCard(200);
+
+            } else if (windowWidth > 1000 && windowWidth <= 1366) {
+                setCardMobile(4);
+                setSpaceCard(370)
+
+            } else {
+                setCardMobile(5);
+                setSpaceCard(0);
+            }
+
+
+
+        };
+
+        handleSlideView();
+
+        return handleSlideView;
+    }, [windowWidth]);
 
 
 
@@ -29,7 +81,8 @@ const Gallery = () => {
 
 
                 <Swiper className="swiper-cards"
-                    slidesPerView={4}
+                    slidesPerView={cardMobile}
+                    spaceBetween={spaceCard}
                     pagination={{ clickable: true }}
                     autoplay={{
                         delay: 10000,

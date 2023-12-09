@@ -61,8 +61,16 @@
     margin-left: 21%;
     gap: 30px;
 
+}
 
+@media screen and (max-width: 1230px) {
 
+    .content-history-about {
+        flex-direction: column;
+        margin-right: 11%;
+        margin-left: 11%;
+
+    }
 
 }
 
@@ -133,6 +141,12 @@
 
 }
 
+@media screen and (max-width: 1230px) {
+    .button-history-about {
+        width: 250px;
+    }
+}
+
 .button-style-about {
     text-decoration: none;
     color: #ffffff;
@@ -159,11 +173,25 @@
 
 }
 
+@media screen and (max-width: 1230px) {
+    .help-us {
+        flex-direction: column;
+    }
+
+}
+
 .help-us h2 {
     font-family: "Montserrat";
     font-size: 36px;
     font-weight: 600;
     color: #fff;
+}
+
+@media screen and (max-width: 1230px) {
+    .help-us h2 {
+        font-size: 20px;
+    }
+
 }
 
 .button-help-us {

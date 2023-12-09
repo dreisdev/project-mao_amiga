@@ -90,14 +90,31 @@ const DonationFormCard = () => {
     return (
         <>
 
-            <section className="payment-boleto">
+            <section className="payment-boleto" >
                 <h1 className="payment-card-title"><FontAwesomeIcon icon={faCreditCard} /> Cartão de Crédito</h1>
 
                 <form id="payment-form" onSubmit={handleSubmit}>
                     <label className="payment-label" htmlFor="card">Digite os Dados do Cartão:</label>
 
                     <div className="element-card">
-                        <CardElement id="card" className="element-card-content" />
+                        <CardElement id="card" className="element-card-content"
+
+                            options={{
+                                style: {
+                                    base: {
+                                        fontSize: '14px',
+                                        color: '#424770',
+                                        '::placeholder': {
+                                            color: '#aab7c4',
+                                        },
+                                    },
+                                    invalid: {
+                                        color: '#9e2146',
+                                    },
+                                },
+                            }}
+
+                        />
                     </div>
 
                     <label htmlFor="nameCustomer">Digite seu nome:</label>

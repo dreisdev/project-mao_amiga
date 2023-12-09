@@ -4,28 +4,33 @@
         /* Gradiente de sobreposição com 50% de transparência */
         url(../../assets/foot-facebook-foto.png) no-repeat center;
     background-size: cover;
-    height: 522px;
+    /* height: 522px; */
 }
-
-
-
 
 
 .site-footer {
 
     display: flex;
-    /* Exibir os elementos internos como flex items */
+
     justify-content: space-between;
-
-
-    /* background-color: rgb(110, 201, 36); */
-
-    height: 300px;
 
     max-width: 1200px;
 
     margin: 0 auto;
 
+}
+
+@media screen and (max-width: 760px) {
+
+    .site-footer {
+
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+
+
+
+    }
 }
 
 .foot-about,
@@ -41,6 +46,21 @@
     align-self: center;
 
 
+}
+
+.foot-links ul {
+    padding-left: 0;
+}
+
+@media screen and (max-width: 760px) {
+
+    .foot-about,
+    .foot-links,
+    .foot-latest-events,
+    .foot-contact {
+        width: 85%;
+
+    }
 }
 
 .facebook,
@@ -93,6 +113,19 @@
     margin-top: 200px;
     height: 300px;
 }
+
+@media screen and (max-width: 760px) {
+
+    .foot-links,
+    .foot-latest-events,
+    .foot-contact,
+    .foot-about {
+        margin-top: 0;
+
+    }
+}
+
+
 
 .foot-latest-events span {
 
@@ -147,15 +180,29 @@
     font-family: "Montserrat";
 }
 
+@media screen and (max-width: 450px) {
+
+    .input-text {
+        margin-top: 30px;
+    }
+}
+
 .input-btn {
     width: 68px;
     height: 39px;
     background: #ff5a00;
-    padding: 12px 16px;
+    padding: 8px 9px;
     color: #FFFFFF;
     border: none;
     margin-top: 30px;
     font-family: "Montserrat";
+}
+
+@media screen and (max-width: 450px) {
+
+    .input-btn {
+        margin-top: 30px;
+    }
 }
 
 .site-footer-bar {
@@ -165,6 +212,16 @@
     background: #ee6205;
     text-align: center;
     font-family: "Montserrat";
+
+}
+
+@media screen and (max-width: 760px) {
+
+    .site-footer-bar {
+        padding: 30px 30px;
+        height: 150px;
+
+    }
 }
 
 .site-footer-bar a {

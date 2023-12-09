@@ -6,7 +6,7 @@ import { dataImages, dataActivities } from "../../Data/dataGeral";
 import History from "../../assets/history-bg-home.jpg";
 import { NavLink } from "react-router-dom";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "../../components/Modal/modal";
 
 import ImageEvents from "../../assets/event-1.jpg";
@@ -36,6 +36,59 @@ const Home = () => {
 
     const now = (raised / goal) * 100;
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [cardMobile, setCardMobile] = useState(4);
+    const [spaceCard, setSpaceCard] = useState(10);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        const handleSlideView = () => {
+
+            if (windowWidth <= 500) {
+
+                setCardMobile(1);
+                setSpaceCard(200);
+
+            } else if (windowWidth > 501 && windowWidth < 968) {
+                setCardMobile(2);
+                setSpaceCard(200);
+
+            } else if (windowWidth > 1000 && windowWidth <= 1366) {
+                setCardMobile(4);
+                setSpaceCard(370)
+
+            } else {
+                setCardMobile(5);
+                setSpaceCard(0);
+            }
+
+
+
+        };
+
+        handleSlideView();
+
+        return handleSlideView;
+    }, [windowWidth]);
+
+
+
+
+
+    const isNavigationEnabled = windowWidth >= 768;
 
 
 
@@ -46,7 +99,7 @@ const Home = () => {
                 <Swiper
                     slidesPerView={1}
                     pagination={{ clickable: true }}
-                    navigation
+                    navigation={isNavigationEnabled}
                     autoplay={{
                         delay: 5000,
                         disableOnInteraction: false,
@@ -77,12 +130,6 @@ const Home = () => {
                                 <button> <FontAwesomeIcon icon={faPix} /><NavLink className="style-buttons-overlay" to="/pix"> Pix </NavLink> </button>
                             </div>
 
-
-
-
-
-
-
                         </SwiperSlide>
 
 
@@ -97,7 +144,8 @@ const Home = () => {
             <section className="cards-container">
 
                 <Swiper className="swiper-cards"
-                    slidesPerView={5}
+                    slidesPerView={cardMobile}
+                    spaceBetween={spaceCard}
                     pagination={{ clickable: true }}
                     autoplay={{
                         delay: 10000,

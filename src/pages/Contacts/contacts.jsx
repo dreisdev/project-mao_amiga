@@ -15,7 +15,7 @@ const Contacts = () => {
 
                 <div className="text-project">
 
-                    <h1 className="text-project-content">Contatos</h1>
+                    <h1 className="text-project-content">Contato</h1>
 
                 </div>
 
