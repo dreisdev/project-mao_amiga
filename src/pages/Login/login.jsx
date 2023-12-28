@@ -33,10 +33,13 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/login", {
-        userLogin,
-        passUser,
-      });
+      const response = await axios.post(
+        "https://server-maoamiga-api.cyclic.app/login",
+        {
+          userLogin,
+          passUser,
+        }
+      );
 
       const tokenLogin = SetToken(response.data.token);
       console.log(tokenLogin);

@@ -34,7 +34,9 @@ const PanelAdm = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/events");
+      const response = await axios.get(
+        "https://server-maoamiga-api.cyclic.app/events"
+      );
 
       setEventsData(response.data);
       setPanelEvent(true);
@@ -101,7 +103,7 @@ const PanelAdm = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:3000/events/${eventIdToDelete}`
+        `http:https://server-maoamiga-api.cyclic.app/events/${eventIdToDelete}`
       );
 
       useToast(response.data.mensagem);

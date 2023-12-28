@@ -26,7 +26,9 @@ const EditEvents = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/events/${id}`);
+        const response = await axios.get(
+          `https://server-maoamiga-api.cyclic.app/events/${id}`
+        );
         const eventData = response.data;
 
         setTitleEvent(eventData.titleEvent);
@@ -57,7 +59,7 @@ const EditEvents = () => {
       formData.append("imagem", imagem);
 
       const response = await axios.put(
-        `http://localhost:3000/events/${id}`,
+        `https://server-maoamiga-api.cyclic.app/events/${id}`,
         formData
       );
 

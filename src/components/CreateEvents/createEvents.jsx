@@ -49,7 +49,7 @@ const CreateEvents = () => {
       formData.append("imagem", imagem);
 
       const response = await axios.post(
-        "http://localhost:3000/events",
+        "https://server-maoamiga-api.cyclic.app/events",
         formData
       );
 

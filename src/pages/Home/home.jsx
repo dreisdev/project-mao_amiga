@@ -12,7 +12,6 @@ import axios from "axios";
 
 import Modal from "../../components/Modal/modal";
 
-// import ImageEvents from "../../assets/event-1.jpg";
 import ImageEvents_2 from "../../assets/featured-causes.jpg";
 import ProgressBar from "react-bootstrap/esm/ProgressBar";
 import ImageRecord from "../../assets/criancas.png";
@@ -90,7 +89,9 @@ const Home = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/events");
+      const response = await axios.get(
+        "https://server-maoamiga-api.cyclic.app/events"
+      );
 
       setEventsData(response.data);
     } catch (error) {

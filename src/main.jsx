@@ -31,7 +31,7 @@ import PaymentCard from "./components/Stripe/Payment_Card.jsx";
 import PaymentPix from "./components/Stripe/Payment_Pix.jsx";
 
 import axios from "axios";
-// import useAuth from "./hooks/useAuth.jsx";
+
 import ProtectedRoute from "./routes/protectedRoute.jsx";
 
 const response = await axios.get(
@@ -39,12 +39,6 @@ const response = await axios.get(
 );
 
 const stripePromisse = loadStripe(`${response.data.publishableKey}`);
-
-// const ProtectedRoute = ({redirecTo}) => {
-//   const {handleGetToken} = useAuth();
-
-//   return handleGetToken() ? <Outlet /> : <Navigate to={redirecTo} />
-// }
 
 const router = createBrowserRouter([
   {

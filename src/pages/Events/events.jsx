@@ -29,7 +29,9 @@ const Events = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/events");
+      const response = await axios.get(
+        "https://server-maoamiga-api.cyclic.app/events"
+      );
 
       setEventsData(response.data);
     } catch (error) {
