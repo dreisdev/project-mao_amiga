@@ -5,7 +5,11 @@ const mongoose = require("mongoose");
 const Connection = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://project_mao_amiga:${process.env.DATA_BASE_PASS}@datadreis.dnoi4fg.mongodb.net/?retryWrites=true&w=majority`
+      `mongodb+srv://project_mao_amiga:${process.env.DATA_BASE_PASS}@datadreis.dnoi4fg.mongodb.net/?retryWrites=true&w=majority`,
+      {
+        bufferCommands: false,
+        connectTimeoutMS: 30000,
+      }
     );
     console.log("Connected to database");
   } catch (error) {
