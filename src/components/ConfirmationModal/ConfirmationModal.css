@@ -1,0 +1,5 @@
+.confirmation-modal {
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat";
+}
