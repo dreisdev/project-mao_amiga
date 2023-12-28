@@ -22,7 +22,7 @@ app.use(
   })
 );
 
-const database = require("./src/Database/conn");
+const database = await require("./src/Database/conn");
 
 database();
 
