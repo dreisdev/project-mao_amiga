@@ -22,9 +22,9 @@ app.use(
   })
 );
 
-const database = await require("./src/Database/conn");
+const database = require("./src/Database/conn");
 
-database();
+await database.Connection();
 
 app.use(express.json());
 app.use(rotas);
