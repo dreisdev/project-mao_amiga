@@ -74,7 +74,7 @@ const Header = () => {
             <NavLink to="/contacts">Contato</NavLink>
           </li>
 
-          <NavLink className="config" to="/config">
+          <NavLink className="config" to="/adm">
             <FontAwesomeIcon icon={faGear} />
           </NavLink>
         </ul>
