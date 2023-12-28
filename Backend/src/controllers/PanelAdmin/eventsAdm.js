@@ -87,7 +87,7 @@ const CreateEvents = async (req, res) => {
 
 const GetAllEvents = async (req, res) => {
   try {
-    const events = await EventModel.find().maxTimeMS(10000).exec();
+    const events = await EventModel.find().maxTimeMS(30000).exec();
     console.log(events);
     res.json(events);
   } catch (error) {
