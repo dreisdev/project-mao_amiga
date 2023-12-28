@@ -3,6 +3,8 @@ const express = require("express");
 
 const rotas = require("./routes");
 
+const database = require("./src/Database/conn");
+
 const PORT = process.env.PORT || 8000;
 
 const app = express();
@@ -22,9 +24,17 @@ app.use(
   })
 );
 
-const database = require("./src/Database/conn");
+app.use(async (req, res, next) => {
+  try {
+    await database();
 
-database();
+    next();
+  } catch (error) {
+    console.error("Error in initial database configuration.:", error);
+
+    res.status(500).json({ mensagem: "Erro interno do servidor" });
+  }
+});
 
 app.use(express.json());
 app.use(rotas);
