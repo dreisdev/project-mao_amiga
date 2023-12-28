@@ -87,7 +87,7 @@ const CreateEvents = async (req, res) => {
 
 const GetAllEvents = async (req, res) => {
   try {
-    const events = await EventModel.find().timeout(10000);
+    const events = await EventModel.find().wtimeout(10000);
     console.log(events);
     res.json(events);
   } catch (error) {
