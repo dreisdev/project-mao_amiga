@@ -24,7 +24,7 @@ app.use(
 
 const database = require("./src/Database/conn");
 
-await database.Connection();
+database();
 
 app.use(express.json());
 app.use(rotas);
