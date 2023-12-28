@@ -87,11 +87,20 @@ const CreateEvents = async (req, res) => {
 
 const GetAllEvents = async (req, res) => {
   try {
-    const events = await EventModel.find();
+    const events = await EventModel.find().timeout(10000);
     console.log(events);
     res.json(events);
   } catch (error) {
     console.log(error);
+
+    if (error.name === "MongooseTimeoutError") {
+      res
+        .status(500)
+        .json({ mensagem: "Tempo limite excedido ao buscar eventos" });
+      return;
+    }
+
+    res.status(500).json({ mensagem: "Erro interno do servidor" });
   }
 };
 

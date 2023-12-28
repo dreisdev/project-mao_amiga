@@ -9,7 +9,10 @@ const app = express();
 
 const cors = require("cors");
 
-const allowedOrigins = ["https://maoamiga.azurewebsites.net"];
+const allowedOrigins = [
+  "https://maoamiga.azurewebsites.net",
+  "http://localhost:5173",
+];
 
 app.use(
   cors({
