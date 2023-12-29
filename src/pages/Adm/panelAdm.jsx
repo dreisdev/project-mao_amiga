@@ -2,7 +2,6 @@
 import "./panelAdm.css";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,6 +15,7 @@ import EditEvents from "../../components/EditEvents/editEvents";
 import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationModal";
 import useToast from "../../hooks/useToast";
 import { DelToken } from "../../utils/storage";
+import api from "../../api/fetchApi";
 
 const PanelAdm = () => {
   const [showConfirm, setShowConfirm] = useState(false);
@@ -34,9 +34,7 @@ const PanelAdm = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get(
-        "https://server-maoamiga-api.cyclic.app/events"
-      );
+      const response = await api.get("/events");
 
       setEventsData(response.data);
       setPanelEvent(true);
@@ -67,7 +65,6 @@ const PanelAdm = () => {
     setcreateEvent(true);
     setEditEvent(false);
     setDeleteEvent(false);
-    console.log(showConfirm);
   };
 
   const handleEdit = (id) => {
@@ -80,7 +77,7 @@ const PanelAdm = () => {
 
   const handleDelete = (eventId) => {
     navigate(`/adm/deleteevent/${eventId}`);
-    console.log("Delete chamada com id1:", eventId);
+
     setEventIdToDelete(eventId);
     setShowConfirm(true);
     setPanelEvent(false);
@@ -99,18 +96,14 @@ const PanelAdm = () => {
     setDeleteEvent(false);
 
     try {
-      const response = await axios.delete(
-        `https://server-maoamiga-api.cyclic.app/events/${eventIdToDelete}`
-      );
+      const response = await api.delete(`/events/${eventIdToDelete}`);
 
       useToast(response.data.mensagem);
 
       fetchEvents();
-
-      console.log(response.data);
     } catch (error) {
       console.log({ "Não está fazendo a chamada": error });
-      useToast(error.response.data.mensagem);
+      useToast(error.response);
     }
   };
 

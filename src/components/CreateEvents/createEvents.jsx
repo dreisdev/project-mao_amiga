@@ -2,13 +2,14 @@
 import "./createEvents.css";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
 
 import { GetToken, SetToken } from "../../utils/storage";
+import api from "../../api/fetchApi";
+import useToast from "../../hooks/useToast";
 
 const CreateEvents = () => {
   const [titleEvent, setTitleEvent] = useState("");
@@ -48,16 +49,14 @@ const CreateEvents = () => {
       formData.append("contentEvent", contentEvent);
       formData.append("imagem", imagem);
 
-      const response = await axios.post(
-        "https://server-maoamiga-api.cyclic.app/events",
-        formData
-      );
+      const response = await api.post("/events", formData);
 
-      const tokenLogin = SetToken(response.data.token);
-      console.log(tokenLogin);
+      SetToken(response.data.token);
 
-      console.log(response);
       setMessageSuccess(response.data.mensagem);
+
+      useToast(response.data.mensagem);
+
       setResultLogin(true);
       setResultError(false);
       setTitleEvent("");
@@ -69,12 +68,9 @@ const CreateEvents = () => {
       setImagem("");
     } catch (error) {
       console.log(error);
-      console.error(
-        "Erro ao fazer a solicitação:",
-        error.response.data.mensagem
-      );
+      console.error("Erro ao fazer a solicitação:", error.response);
       setResultError(true);
-      setMessageError(error.response.data.mensagem);
+      setMessageError(error.response);
     }
   };
 

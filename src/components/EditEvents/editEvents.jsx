@@ -2,11 +2,12 @@
 import "./editEvents.css";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api/fetchApi";
 import { NavLink, useParams } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
+import useToast from "../../hooks/useToast";
 
 const EditEvents = () => {
   const { id } = useParams();
@@ -26,9 +27,7 @@ const EditEvents = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://server-maoamiga-api.cyclic.app/events/${id}`
-        );
+        const response = await api.get(`/events/${id}`);
         const eventData = response.data;
 
         setTitleEvent(eventData.titleEvent);
@@ -58,14 +57,11 @@ const EditEvents = () => {
       formData.append("contentEvent", contentEvent);
       formData.append("imagem", imagem);
 
-      const response = await axios.put(
-        `https://server-maoamiga-api.cyclic.app/events/${id}`,
-        formData
-      );
+      const response = await api.put(`/events/${id}`, formData);
 
-      console.log(response);
       setResultLogin(true);
       setMessageSuccess(response.data.mensagem);
+      useToast(response.data.mensagem);
       setResultError(false);
     } catch (error) {
       console.log(error);

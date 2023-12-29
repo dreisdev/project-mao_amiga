@@ -2,7 +2,6 @@
 import "./login.css";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
 import useToast from "../../hooks/useToast";
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -10,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserGear } from "@fortawesome/free-solid-svg-icons";
 
 import { GetToken, SetToken } from "../../utils/storage";
+import api from "../../api/fetchApi";
 
 const LoginForm = () => {
   const [userLogin, setUserLogin] = useState("");
@@ -33,13 +33,10 @@ const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://server-maoamiga-api.cyclic.app/login",
-        {
-          userLogin,
-          passUser,
-        }
-      );
+      const response = await api.post("/login", {
+        userLogin,
+        passUser,
+      });
 
       SetToken(response.data.token);
 
@@ -52,11 +49,10 @@ const LoginForm = () => {
       console.log(error);
       console.error(
         "Erro ao fazer a solicitação:",
-        error.response.data.mensagem
+        useToast(error.response.data.mensagem, "error")
       );
       setResultError(true);
       setMessageError(error.response.data.mensagem);
-      useToast(error.response.data.mensagem);
     }
   };
 
