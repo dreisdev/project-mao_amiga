@@ -41,10 +41,8 @@ const LoginForm = () => {
         }
       );
 
-      const tokenLogin = SetToken(response.data.token);
-      console.log(tokenLogin);
+      SetToken(response.data.token);
 
-      console.log(response);
       useToast(response.data.mensagem);
       setResultLogin(true);
       setResultError(false);

@@ -44,8 +44,6 @@ const PanelAdm = () => {
       setEditEvent(false);
       setDeleteEvent(false);
 
-      console.log(response);
-
       setResultError(false);
     } catch (error) {
       console.log(error);
@@ -78,7 +76,6 @@ const PanelAdm = () => {
     setcreateEvent(false);
     setEditEvent(true);
     setDeleteEvent(false);
-    console.log(showConfirm);
   };
 
   const handleDelete = (eventId) => {
