@@ -103,7 +103,7 @@ const PanelAdm = () => {
 
     try {
       const response = await axios.delete(
-        `http:https://server-maoamiga-api.cyclic.app/events/${eventIdToDelete}`
+        `https://server-maoamiga-api.cyclic.app/events/${eventIdToDelete}`
       );
 
       useToast(response.data.mensagem);
@@ -112,7 +112,7 @@ const PanelAdm = () => {
 
       console.log(response.data);
     } catch (error) {
-      console.log(error);
+      console.log({ "Não está fazendo a chamada": error });
       useToast(error.response.data.mensagem);
     }
   };
