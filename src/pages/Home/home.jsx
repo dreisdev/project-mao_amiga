@@ -8,11 +8,8 @@ import { NavLink } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
-import axios from "axios";
-
 import Modal from "../../components/Modal/modal";
 
-import ImageEvents_2 from "../../assets/featured-causes.jpg";
 import ProgressBar from "react-bootstrap/esm/ProgressBar";
 import ImageRecord from "../../assets/criancas.png";
 import Donation from "../../assets/doacao.png";
@@ -21,12 +18,14 @@ import Education from "../../assets/educacao.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard, faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { faPix } from "@fortawesome/free-brands-svg-icons";
+import api from "../../api/fetchApi";
 
 const Home = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const [eventsData, setEventsData] = useState([]);
+  const [projectsData, setProjectsData] = useState([]);
 
   const openModal = (eventId) => {
     const foundEvent = eventsData.find((event) => event._id === eventId);
@@ -41,11 +40,6 @@ const Home = () => {
 
     setSelectedEvent(null);
   };
-
-  const raised = 5000;
-  const goal = 8000;
-
-  const now = (raised / goal) * 100;
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [cardMobile, setCardMobile] = useState(4);
@@ -89,9 +83,7 @@ const Home = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get(
-        "https://server-maoamiga-api.cyclic.app/events"
-      );
+      const response = await api.get("/events");
 
       setEventsData(response.data);
     } catch (error) {
@@ -104,6 +96,23 @@ const Home = () => {
 
   useEffect(() => {
     fetchEvents();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      const response = await api.get("/projects");
+
+      setProjectsData(response.data);
+    } catch (error) {
+      console.error(
+        "Erro ao fazer a solicitação:",
+        error.response.data.mensagem
+      );
+    }
+  };
+
+  useEffect(() => {
+    fetchProjects();
   }, []);
 
   return (
@@ -279,6 +288,7 @@ const Home = () => {
                       <Modal
                         isOpen={isModalOpen}
                         onClose={closeModal}
+                        image={eventData.imagem.url}
                         title={selectedEvent ? selectedEvent.titleEvent : ""}
                         content={
                           selectedEvent ? selectedEvent.contentEvent : ""
@@ -299,52 +309,70 @@ const Home = () => {
           </div>
 
           <div className="box-next-events">
-            <div className="content-events-2">
-              <img
-                className="image-events"
-                src={ImageEvents_2}
-                alt="image-events"
-              />
-
-              <div className="box-content-events">
-                <h2 className="title-events">
-                  Arrecadação de fundos para crianças
-                </h2>
-
-                <span className="date-events">25 de agosto de 2018</span>
-
-                <span> | </span>
-
-                <span className="local-events">
-                  Salão de Baile de Nova York
-                </span>
-
-                <div className="donate-events">
-                  <p className="donate-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facilis, laudantium!
-                  </p>
-
-                  <button className="donate-btn">Doe para o projeto</button>
-
-                  <ProgressBar
-                    now={now}
-                    label={`${now.toFixed(0)}%`}
-                    className="custom-progress"
+            {projectsData.length <= 0 ? (
+              <div>
+                <p>Não há projetos no momento...</p>
+              </div>
+            ) : (
+              projectsData.slice(0, 1).map((projectData) => (
+                <div className="content-events-2" key={projectsData._id}>
+                  <img
+                    className="image-events"
+                    src={projectData.imagem.url}
+                    alt={projectData.titleProject}
                   />
 
-                  <div className="financial-goals">
-                    <div className="raised">
-                      <span>Arrecadado: {raised} </span>
-                    </div>
+                  <div className="box-content-events">
+                    <h2 className="title-events">{projectData.titleProject}</h2>
 
-                    <div className="goal">
-                      <span>Meta: {goal} </span>
+                    <span className="date-events">
+                      {projectData.dayProject} de {projectData.monthProject} de{" "}
+                      {projectData.yearProject}
+                    </span>
+
+                    <span> | </span>
+
+                    <span className="local-events">
+                      {projectData.localProject}
+                    </span>
+
+                    <div className="donate-events">
+                      <p className="donate-text">
+                        {projectData.descriptionProject}
+                      </p>
+
+                      <button className="donate-btn">Doe para o projeto</button>
+
+                      <ProgressBar
+                        now={
+                          (projectData.collectedProject /
+                            projectData.goalProject) *
+                          100
+                        }
+                        label={`${(
+                          (projectData.collectedProject /
+                            projectData.goalProject) *
+                          100
+                        ).toFixed(2)}%`}
+                        className="custom-progress"
+                      />
+
+                      <div className="financial-goals">
+                        <div className="raised">
+                          <span>
+                            Arrecadado: {projectData.collectedProject}{" "}
+                          </span>
+                        </div>
+
+                        <div className="goal">
+                          <span>Meta: {projectData.goalProject} </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              ))
+            )}
           </div>
         </div>
       </section>

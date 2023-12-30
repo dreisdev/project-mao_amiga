@@ -16,8 +16,10 @@ import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationMo
 import useToast from "../../hooks/useToast";
 import { DelToken } from "../../utils/storage";
 import api from "../../api/fetchApi";
+import { useAdmin } from "../../Context/AdminContext";
 
 const PanelAdm = () => {
+  const { eventTrue, switchToProjects } = useAdmin();
   const [showConfirm, setShowConfirm] = useState(false);
   const [eventIdToDelete, setEventIdToDelete] = useState(null);
 
@@ -127,6 +129,13 @@ const PanelAdm = () => {
     navigate("/login");
   };
 
+  const handleProjects = () => {
+    switchToProjects();
+    navigate("/adm/project");
+
+    console.log("indo para projetos");
+  };
+
   return (
     <>
       <section className="panel-section">
@@ -136,8 +145,15 @@ const PanelAdm = () => {
           </h1>
         </div>
 
+        <div id="to-projects">
+          <h1 onClick={handleProjects}>
+            <FontAwesomeIcon icon={faRightFromBracket} /> Painel de Projetos
+          </h1>
+        </div>
+
         <h1 className="payment-card-title">
-          <FontAwesomeIcon icon={faCalendarDay} /> Painel Administrativo
+          <FontAwesomeIcon icon={faCalendarDay} /> Painel Administrativo -{" "}
+          {eventTrue ? "Eventos" : "Projetos"}
         </h1>
 
         <form id="panel-form">

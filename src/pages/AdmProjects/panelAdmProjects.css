@@ -140,6 +140,18 @@ label {
   font-size: 12px;
 }
 
+.info-projects {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 78%;
+  background-color: azure;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 .event-description {
   width: 100%;
   font-family: "Montserrat";

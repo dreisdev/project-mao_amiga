@@ -6,9 +6,6 @@ const ProtectedRoutes = ({ redirectTo, children }) => {
   const isAuthenticated = !!GetToken("token");
 
   if (!isAuthenticated) {
-    console.log("Usuário não autenticado");
-    console.log(isAuthenticated);
-
     return <Navigate to={redirectTo} />;
   }
 

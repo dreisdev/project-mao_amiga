@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import "./createEvents.css";
 
-import { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
 
-import { GetToken, SetToken } from "../../utils/storage";
 import api from "../../api/fetchApi";
 import useToast from "../../hooks/useToast";
 
@@ -23,17 +22,6 @@ const CreateEvents = () => {
   const [resultError, setResultError] = useState(false);
   const [resultLogin, setResultLogin] = useState(false);
   const [messageSuccess, setMessageSuccess] = useState("");
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const isAutheticated = GetToken("token");
-
-    if (isAutheticated) {
-      navigate("/adm");
-      return;
-    }
-  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -51,7 +39,7 @@ const CreateEvents = () => {
 
       const response = await api.post("/events", formData);
 
-      SetToken(response.data.token);
+      // SetToken(response.data.token);
 
       setMessageSuccess(response.data.mensagem);
 

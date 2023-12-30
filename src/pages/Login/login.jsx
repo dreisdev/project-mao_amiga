@@ -10,6 +10,7 @@ import { faUserGear } from "@fortawesome/free-solid-svg-icons";
 
 import { GetToken, SetToken } from "../../utils/storage";
 import api from "../../api/fetchApi";
+import { useAdmin } from "../../Context/AdminContext";
 
 const LoginForm = () => {
   const [userLogin, setUserLogin] = useState("");
@@ -20,12 +21,17 @@ const LoginForm = () => {
 
   const navigate = useNavigate();
 
+  const { eventTrue, projectTrue } = useAdmin();
+
   useEffect(() => {
     const isAutheticated = GetToken();
 
     if (isAutheticated) {
-      navigate("/adm");
-      return;
+      if (eventTrue && !projectTrue) {
+        navigate("/adm");
+      } else if (!eventTrue && projectTrue) {
+        navigate("/adm/project");
+      }
     }
   }, []);
 
