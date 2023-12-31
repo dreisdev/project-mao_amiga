@@ -148,7 +148,9 @@ const Projects = () => {
                       <Modal
                         isOpen={isModalOpen}
                         onClose={closeModal}
-                        image={projectData.imagem.url}
+                        image={
+                          selectedProject ? selectedProject.imagem.url : ""
+                        }
                         title={
                           selectedProject ? selectedProject.titleProject : ""
                         }
@@ -157,13 +159,23 @@ const Projects = () => {
                             ? selectedProject.descriptionProject
                             : ""
                         }
-                        projectGoal={projectData.goalProject}
-                        collectedProject={projectData.collectedProject}
-                        reachedProject={`${(
-                          (projectData.collectedProject /
-                            projectData.goalProject) *
-                          100
-                        ).toFixed(2)}%`}
+                        projectGoal={
+                          selectedProject ? selectedProject.goalProject : ""
+                        }
+                        collectedProject={
+                          selectedProject
+                            ? selectedProject.collectedProject
+                            : ""
+                        }
+                        reachedProject={
+                          selectedProject
+                            ? `${(
+                                (selectedProject.collectedProject /
+                                  selectedProject.goalProject) *
+                                100
+                              ).toFixed(2)}%`
+                            : ""
+                        }
                       />
                     </div>
                   </div>

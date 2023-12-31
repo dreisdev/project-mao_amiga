@@ -439,7 +439,7 @@ button {
 
 .box-next-events {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 40px;
   /* justify-content: space-between; */
   flex-wrap: wrap;
@@ -518,6 +518,13 @@ button {
   display: flex;
   background-color: #ecf2f5;
   padding: 40px 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 500px) {

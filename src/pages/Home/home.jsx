@@ -288,7 +288,7 @@ const Home = () => {
                       <Modal
                         isOpen={isModalOpen}
                         onClose={closeModal}
-                        image={eventData.imagem.url}
+                        image={selectedEvent ? selectedEvent.imagem.url : ""}
                         title={selectedEvent ? selectedEvent.titleEvent : ""}
                         content={
                           selectedEvent ? selectedEvent.contentEvent : ""
