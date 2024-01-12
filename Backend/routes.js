@@ -23,6 +23,10 @@ const {
   DeleteProjects,
   UpdateProjects,
 } = require("./src/controllers/PanelAdmin/projectsAdm");
+const {
+  emailUserNotice,
+  emailContact,
+} = require("./src/controllers/email/contactEmail");
 
 rotas.use(express.json());
 
@@ -32,6 +36,9 @@ rotas.post("/payment/boleto", boletoPayment);
 rotas.post("/payment/card", cardPayment);
 
 rotas.post("/login", Login);
+
+rotas.post("/emailUser", emailUserNotice);
+rotas.post("/emailBox", emailContact);
 
 rotas.get("/events", GetAllEvents);
 rotas.get("/events/:id", GetEventsId);
