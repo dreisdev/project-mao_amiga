@@ -14,6 +14,7 @@ const cors = require("cors");
 const allowedOrigins = [
   "https://maoamiga.azurewebsites.net",
   "http://localhost:5173",
+  "https://77xgbpgs-5173.brs.devtunnels.ms",
 ];
 
 app.use(

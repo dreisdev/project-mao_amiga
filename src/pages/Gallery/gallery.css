@@ -1,12 +1,18 @@
 .figure-cards-gallery {
-    max-width: 100%;
-    width: 50%;
-    height: 50%;
-    background-size: contain;
+  max-width: 100%;
+  width: 50%;
+  height: 50%;
+  background-size: contain;
 }
 
 .figure-cards-gallery:hover {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+@media screen and (max-width: 450px) {
+  .cards-projects {
+    width: 260px;
+  }
 }
