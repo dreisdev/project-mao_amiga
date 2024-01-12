@@ -1,113 +1,163 @@
-import "./contacts.css"
+/* eslint-disable react-hooks/rules-of-hooks */
+import "./contacts.css";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faMapLocation, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { useState } from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import {
+  faEnvelope,
+  faMapLocation,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { NavLink } from "react-router-dom";
+import api from "../../api/fetchApi";
+import useToast from "../../hooks/useToast";
 
 const Contacts = () => {
-    return (
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-        <div className="container-contacts">
+  const handleSendNotice = async () => {
+    try {
+      const dataNotice = {
+        userName,
+        email,
+      };
 
-            <section className="banner-project">
+      const responseEmailNotice = await api.post("/emailUser", dataNotice);
 
-                <div className="text-project">
+      useToast((await responseEmailNotice).data.mensagem);
 
-                    <h1 className="text-project-content">Contato</h1>
+      setUserName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.log(error);
+      useToast(error, "error");
+    }
+  };
 
-                </div>
+  const handleSendBox = async (e) => {
+    e.preventDefault();
+    try {
+      const dataEmailBox = {
+        userName,
+        email,
+        message,
+      };
 
-            </section>
+      api.post("/emailBox", dataEmailBox);
 
-            <main className="box-contacts">
+      await handleSendNotice();
+    } catch (error) {
+      console.log(error);
+      useToast(error, "error");
+    }
+  };
+  return (
+    <div className="container-contacts">
+      <section className="banner-project">
+        <div className="text-project">
+          <h1 className="text-project-content">Contato</h1>
+        </div>
+      </section>
 
-                <div className="left-box-contacts">
+      <main className="box-contacts">
+        <div className="left-box-contacts">
+          <h1 className="contacts-title">Entre em contato conosco</h1>
 
-                    <h1 className="contacts-title">Entre em contato conosco</h1>
+          <p className="contacts-text">
+            Ficou interessado em algum projeto, entre em contato conosco e saiba
+            como pode ajudar.
+          </p>
 
-                    <p className="contacts-text">
-                        Ficou interessado em algum projeto, entre em contato conosco e saiba como pode ajudar.
+          <div className="contacts-icons">
+            <NavLink
+              to="https://www.facebook.com/maoamiga.ywam/"
+              target="_blank"
+            >
+              <FontAwesomeIcon
+                className="facebook-page-contacts"
+                icon={faFacebook}
+              />
+            </NavLink>
 
-                    </p>
+            <NavLink
+              to="https://www.instagram.com/maoamiga_aquiraz/"
+              target="_blank"
+            >
+              <FontAwesomeIcon
+                className="instagram-page-contacts"
+                icon={faInstagram}
+              />
+            </NavLink>
+          </div>
 
-                    <div className="contacts-icons">
+          <aside className="contacts-info">
+            <div className="icon">
+              <span>
+                <FontAwesomeIcon className="phone" icon={faPhone} />
+                +55 85 8888-8888
+              </span>
+            </div>
 
-                        <NavLink to="https://www.facebook.com/maoamiga.ywam/" target="_blank">
-                            <FontAwesomeIcon className="facebook-page-contacts" icon={faFacebook} />
-                        </NavLink>
+            <div className="icon">
+              <span>
+                <FontAwesomeIcon className="envelope" icon={faEnvelope} />
+                maoamiga@email.com
+              </span>
+            </div>
 
-                        <NavLink to="https://www.instagram.com/maoamiga_aquiraz/" target="_blank">
-                            <FontAwesomeIcon className="instagram-page-contacts" icon={faInstagram} />
-                        </NavLink>
+            <div className="icon">
+              <FontAwesomeIcon className="location" icon={faMapLocation} />
 
-                    </div>
-
-                    <aside className="contacts-info">
-
-                        <div className="icon">
-
-                            <span>
-                                <FontAwesomeIcon className="phone" icon={faPhone} />
-                                +55 85 8888-8888
-                            </span>
-
-                        </div>
-
-                        <div className="icon">
-
-                            <span>
-                                <FontAwesomeIcon className="envelope" icon={faEnvelope} />
-                                maoamiga@email.com
-                            </span>
-
-                        </div>
-
-
-
-                        <div className="icon">
-
-                            <FontAwesomeIcon className="location" icon={faMapLocation} />
-
-                            <span className="break">
-
-                                Chacara da prainha, <br /> Aquiraz, CE, Brazil
-
-                            </span>
-
-                        </div>
-
-
-                    </aside>
-
-
-
-                </div>
-
-                <div className="right-box-contacts">
-
-                    <form className="contacts-form">
-
-                        <input className="input-name" type="text" placeholder="Nome" />
-
-                        <input className="input-email" type="email" placeholder="Email" />
-
-                        <textarea className="message" name="Envie sua mensagem!" placeholder="Envie sua mensagem!"></textarea>
-
-                        <button className="button-contact">Fale Conosco</button>
-
-
-
-                    </form>
-
-                </div>
-
-            </main>
-
+              <span className="break">
+                Chacara da prainha, <br /> Aquiraz, CE, Brazil
+              </span>
+            </div>
+          </aside>
         </div>
 
-    )
-}
+        <div className="right-box-contacts">
+          <form className="contacts-form" onSubmit={handleSendBox}>
+            <input
+              className="input-name"
+              type="text"
+              placeholder="Nome"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              required
+            />
+
+            <input
+              className="input-email"
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <textarea
+              className="message"
+              name="Envie sua mensagem!"
+              placeholder="Envie sua mensagem!"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+            ></textarea>
+
+            <button className="button-contact" type="submit">
+              Enviar Mensagem
+            </button>
+          </form>
+        </div>
+      </main>
+    </div>
+  );
+};
 
 export default Contacts;
