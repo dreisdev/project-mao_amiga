@@ -90,11 +90,21 @@ const LoginForm = () => {
           {resultError ? (
             <div>{messageError}</div>
           ) : resultLogin ? (
-            <button className="btn-back-home">
-              <NavLink className="style-btn-back-home" to="/adm">
-                Ir para o Painel ADM.
-              </NavLink>
-            </button>
+            <>
+              <div className="btn-panel">
+                <button className="btn-back-home">
+                  <NavLink className="style-btn-back-home" to="/adm">
+                    Ir para o Painel ADM.
+                  </NavLink>
+                </button>
+
+                <button className="btn-back-home">
+                  <NavLink className="style-btn-back-home" to="/adm">
+                    Ir para o Painel de Galeria.
+                  </NavLink>
+                </button>
+              </div>
+            </>
           ) : null}
 
           <button className="btn-pay" type="submit">
