@@ -27,6 +27,11 @@ const {
   emailUserNotice,
   emailContact,
 } = require("./src/controllers/email/contactEmail");
+const {
+  PhotosGallery,
+  GetAllGallery,
+  DeleteEventGallery,
+} = require("./src/controllers/PanelAdmin/GalleryAdm");
 
 rotas.use(express.json());
 
@@ -51,5 +56,9 @@ rotas.get("/projects/:id", GetProjectsId);
 rotas.post("/projects", CreateProjects);
 rotas.delete("/projects/:id", DeleteProjects);
 rotas.put("/projects/:id", UpdateProjects);
+
+rotas.post("/gallery", PhotosGallery);
+rotas.get("/gallery", GetAllGallery);
+rotas.delete("/gallery/:id", DeleteEventGallery);
 
 module.exports = rotas;

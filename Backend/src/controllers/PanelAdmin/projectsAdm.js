@@ -92,7 +92,7 @@ const CreateProjects = async (req, res) => {
 const GetAllProjects = async (req, res) => {
   try {
     const projects = await ProjectModel.find();
-    console.log(projects);
+
     res.json(projects);
   } catch (error) {
     console.log(error);
