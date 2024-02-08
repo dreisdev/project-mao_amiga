@@ -15,6 +15,9 @@ const allowedOrigins = [
   "https://maoamiga.azurewebsites.net",
   "http://localhost:5173",
   "https://77xgbpgs-5173.brs.devtunnels.ms",
+  "http://localhost:5000",
+  "http://127.0.0.1:5000",
+  "https://project-maoamiga.web.app",
 ];
 
 app.use(

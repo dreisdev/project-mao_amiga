@@ -88,7 +88,7 @@ const CreateEvents = async (req, res) => {
 const GetAllEvents = async (req, res) => {
   try {
     const events = await EventModel.find();
-    console.log(events);
+
     res.json(events);
   } catch (error) {
     console.log(error);
