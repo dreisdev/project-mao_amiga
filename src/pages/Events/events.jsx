@@ -3,9 +3,8 @@ import "./events.css";
 import { useState, useEffect } from "react";
 import Modal from "../../components/Modal/modal";
 
-import axios from "axios";
-
 import DataIcon from "../../assets/DataEvents/donate-icon.png";
+import api from "../../api/fetchApi";
 
 const Events = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -29,9 +28,7 @@ const Events = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get(
-        "https://server-maoamiga-api.cyclic.app/events"
-      );
+      const response = await api.get("/events");
 
       setEventsData(response.data);
     } catch (error) {
