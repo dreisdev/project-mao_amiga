@@ -381,13 +381,12 @@ const Home = () => {
         <div className="box-resume">
           <div className="title-resume">
             <h1>
-              Adoramos ajudar todas as crianças que têm problemas no mundo. Após
-              15 anos temos muitos objetivos alcançados.
+              Nossas iniciativas tem como objetivo minorar os problemas
+              enfrentados na vida escolar de nossos atendidos.
             </h1>
 
             <p className="resume-description">
-              Dolor sit amet, consectetur adipiscing elit. Mauris tempus vestib
-              ulum mauris quis aliquam. Lorem ipsum dolor sit amet.
+              Junte-se a nós e venha fazer de um projeto que transforma vidas!
             </p>
           </div>
         </div>

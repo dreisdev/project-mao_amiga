@@ -34,6 +34,7 @@ import PaymentPix from "./components/Stripe/Payment_Pix.jsx";
 import ProtectedRoute from "./routes/protectedRoute.jsx";
 import { AdminProvider } from "./Context/AdminContext.jsx";
 import api from "./api/fetchApi.jsx";
+import PanelGalleryAdm from "./pages/AdmGallery/panelAdmGallery.jsx";
 
 const response = await api.get("/config");
 
@@ -121,6 +122,22 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/admGallery/*",
+        element: (
+          <ProtectedRoute redirectTo="/login">
+            <PanelGalleryAdm />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/admGallery/deletephotos/:id/*",
+        element: (
+          <ProtectedRoute redirectTo="/login">
+            <PanelGalleryAdm />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/boleto",

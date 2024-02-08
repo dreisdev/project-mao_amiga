@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import "./panelAdm.css";
+import "./panelAdmGallery.css";
 
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -10,21 +10,17 @@ import {
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
-import CreateEvents from "../../components/CreateEvents/createEvents";
-import EditEvents from "../../components/EditEvents/editEvents";
+import NewEvent from "../../components/NewsPhotos/newEventPhoto";
 import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationModal";
 import useToast from "../../hooks/useToast";
 import { DelToken } from "../../utils/storage";
 import api from "../../api/fetchApi";
-import { useAdmin } from "../../Context/AdminContext";
 
-const PanelAdm = () => {
-  const { eventTrue, switchToProjects } = useAdmin();
+const PanelGalleryAdm = () => {
   const [showConfirm, setShowConfirm] = useState(false);
   const [eventIdToDelete, setEventIdToDelete] = useState(null);
 
   const [createEvent, setcreateEvent] = useState(false);
-  const [editEvent, setEditEvent] = useState(false);
   const [deleteEvent, setDeleteEvent] = useState(false);
   const [panelEvent, setPanelEvent] = useState(false);
   const [eventsData, setEventsData] = useState([]);
@@ -34,14 +30,13 @@ const PanelAdm = () => {
 
   const navigate = useNavigate();
 
-  const fetchEvents = async () => {
+  const fetchPhotos = async () => {
     try {
-      const response = await api.get("/events");
+      const response = await api.get("/gallery");
 
       setEventsData(response.data);
       setPanelEvent(true);
       setcreateEvent(false);
-      setEditEvent(false);
       setDeleteEvent(false);
 
       setResultError(false);
@@ -57,7 +52,7 @@ const PanelAdm = () => {
   };
 
   useEffect(() => {
-    fetchEvents();
+    fetchPhotos();
   }, []);
 
   const handleCreate = (e) => {
@@ -65,44 +60,35 @@ const PanelAdm = () => {
 
     setPanelEvent(false);
     setcreateEvent(true);
-    setEditEvent(false);
-    setDeleteEvent(false);
-  };
-
-  const handleEdit = (id) => {
-    navigate(`/adm/editevent/${id}`);
-    setPanelEvent(false);
-    setcreateEvent(false);
-    setEditEvent(true);
     setDeleteEvent(false);
   };
 
   const handleDelete = (eventId) => {
-    navigate(`/adm/deleteevent/${eventId}`);
+    navigate(`/admGallery/deletephotos/${eventId}`);
 
     setEventIdToDelete(eventId);
     setShowConfirm(true);
     setPanelEvent(false);
     setcreateEvent(false);
-    setEditEvent(false);
+
     setDeleteEvent(true);
   };
 
   const confirmDelete = async () => {
-    navigate(`/adm`);
+    navigate(`/admGallery`);
 
     setShowConfirm(false);
     setPanelEvent(false);
     setcreateEvent(false);
-    setEditEvent(false);
+
     setDeleteEvent(false);
 
     try {
-      const response = await api.delete(`/events/${eventIdToDelete}`);
+      const response = await api.delete(`/gallery/${eventIdToDelete}`);
 
       useToast(response.data.mensagem);
 
-      fetchEvents();
+      fetchPhotos();
     } catch (error) {
       console.log({ "Não está fazendo a chamada": error });
       useToast(error.response);
@@ -116,12 +102,12 @@ const PanelAdm = () => {
   const handleBack = (e) => {
     e.preventDefault();
 
-    navigate(`/adm`);
+    navigate(`/admGallery`);
     setPanelEvent(true);
     setcreateEvent(false);
-    setEditEvent(false);
+
     setDeleteEvent(false);
-    fetchEvents();
+    fetchPhotos();
   };
 
   const handleLogout = () => {
@@ -130,12 +116,11 @@ const PanelAdm = () => {
   };
 
   const handleProjects = () => {
-    switchToProjects();
     navigate("/adm/project");
   };
 
-  const handleGallery = () => {
-    navigate("/admGallery");
+  const handleEvents = () => {
+    navigate("/adm");
   };
 
   return (
@@ -148,20 +133,20 @@ const PanelAdm = () => {
         </div>
 
         <div id="to-projects">
+          <h1 onClick={handleEvents}>
+            <FontAwesomeIcon icon={faRightFromBracket} /> Painel de Eventos
+          </h1>
+        </div>
+
+        <div style={{ marginTop: "10px" }} id="to-projects">
           <h1 onClick={handleProjects}>
             <FontAwesomeIcon icon={faRightFromBracket} /> Painel de Projetos
           </h1>
         </div>
 
-        <div style={{ marginTop: "10px" }} id="to-projects">
-          <h1 onClick={handleGallery}>
-            <FontAwesomeIcon icon={faRightFromBracket} /> Painel de Galeria
-          </h1>
-        </div>
-
         <h1 className="payment-card-title">
-          <FontAwesomeIcon icon={faCalendarDay} /> Painel Administrativo -{" "}
-          {eventTrue ? "Eventos" : "Projetos"}
+          <FontAwesomeIcon icon={faCalendarDay} /> Painel Administrativo -
+          Galeria
         </h1>
 
         <form id="panel-form">
@@ -169,17 +154,14 @@ const PanelAdm = () => {
             <button
               style={{
                 display:
-                  createEvent ||
-                  editEvent ||
-                  deleteEvent ||
-                  eventsData.length <= 0
+                  createEvent || deleteEvent || eventsData.length <= 0
                     ? "none"
                     : "block",
               }}
               className="btn-create"
               onClick={handleCreate}
             >
-              Criar Evento
+              Enviar Fotos
             </button>
 
             <button
@@ -203,30 +185,27 @@ const PanelAdm = () => {
                 para o painel.
               </p>
 
-              <CreateEvents />
+              <NewEvent />
             </div>
           ) : panelEvent ? (
             <>
-              <h2 className="title-panel">Eventos Cadastrados</h2>
+              <h2 className="title-panel">Fotos na Galeria</h2>
               <div className="card-events">
                 <div className="card-events-content">
                   {eventsData.map((eventData) => (
-                    <div className="content-panel" key={eventData._id}>
+                    <div className="content-panel-gallery" key={eventData._id}>
                       <h2 className="title-panel-e">{eventData.titleEvent}</h2>
-                      <figure>
-                        <img
-                          className="image-event"
-                          src={eventData.imagem.url}
-                          alt={eventData.titleEvent}
-                        />
+                      <figure className="image-galley">
+                        {eventData.imagens.map((imagem) => (
+                          <img
+                            className="image-event"
+                            key={imagem._id}
+                            src={imagem.url}
+                            alt={eventData.titleEvent}
+                          />
+                        ))}
                       </figure>
 
-                      <div className="info-events">
-                        <span>Data: {eventData.dayEvent}</span>
-                        <span>de {eventData.monthEvent}</span>
-                        <span>de {eventData.yearEvent}</span>
-                        <span>Local: {eventData.localEvent}</span>
-                      </div>
                       <div className="event-description">
                         <h3>Descrição do Evento</h3>
                         <p>{eventData.contentEvent}</p>
@@ -234,16 +213,9 @@ const PanelAdm = () => {
                       <div>
                         <button
                           className="btn-panel"
-                          onClick={() => handleEdit(eventData._id)}
-                        >
-                          Editar Evento
-                        </button>
-
-                        <button
-                          className="btn-panel"
                           onClick={() => handleDelete(eventData._id)}
                         >
-                          Excluir Evento
+                          Excluir Fotos
                         </button>
                       </div>
                     </div>
@@ -253,15 +225,11 @@ const PanelAdm = () => {
             </>
           ) : createEvent ? (
             <div>
-              <CreateEvents />
-            </div>
-          ) : editEvent ? (
-            <div>
-              <EditEvents />
+              <NewEvent />
             </div>
           ) : showConfirm ? (
             <ConfirmationModal
-              message="Tem certeza que deseja excluir o Evento? Essa ação não poderá ser desfeita!"
+              message="Tem certeza que deseja excluir as Fotos? Essa ação não poderá ser desfeita!"
               onConfirm={confirmDelete}
               onCancel={cancelDelete}
             />
@@ -274,4 +242,4 @@ const PanelAdm = () => {
   );
 };
 
-export default PanelAdm;
+export default PanelGalleryAdm;

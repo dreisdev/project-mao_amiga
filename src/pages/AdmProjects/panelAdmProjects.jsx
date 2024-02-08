@@ -134,6 +134,10 @@ const PanelAdmProjects = () => {
     navigate("/adm");
   };
 
+  const handleGallery = () => {
+    navigate("/admGallery");
+  };
+
   return (
     <>
       <section className="panel-section">
@@ -146,6 +150,12 @@ const PanelAdmProjects = () => {
         <div id="to-projects">
           <h1 onClick={handleProjects}>
             <FontAwesomeIcon icon={faRightFromBracket} /> Painel de Eventos
+          </h1>
+        </div>
+
+        <div style={{ marginTop: "10px" }} id="to-projects">
+          <h1 onClick={handleGallery}>
+            <FontAwesomeIcon icon={faRightFromBracket} /> Painel de Galeria
           </h1>
         </div>
 

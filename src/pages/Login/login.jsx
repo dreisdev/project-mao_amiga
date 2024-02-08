@@ -99,7 +99,7 @@ const LoginForm = () => {
                 </button>
 
                 <button className="btn-back-home">
-                  <NavLink className="style-btn-back-home" to="/adm">
+                  <NavLink className="style-btn-back-home" to="/admGallery">
                     Ir para o Painel de Galeria.
                   </NavLink>
                 </button>
