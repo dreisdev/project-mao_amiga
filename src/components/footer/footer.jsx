@@ -145,7 +145,7 @@ const Footer = () => {
             <div className="icon">
               <span>
                 <FontAwesomeIcon className="envelope" icon={faEnvelope} />
-                adm@maoamigace.org
+                contato@maoamigace.org
               </span>
             </div>
 
@@ -162,7 +162,9 @@ const Footer = () => {
               type="text"
               placeholder="Digite seu e-mail"
             />
-            <input className="input-btn" type="button" value="Enviar" />
+            <a href="/contacts">
+              <input className="input-btn" type="button" value="Enviar" />
+            </a>
           </div>
         </footer>
       </div>

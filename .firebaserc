@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "project-maoamiga"
-  }
+  },
+  "targets": {
+    "project-maoamiga": {
+      "hosting": {
+        "project-maoamiga": [
+          "./firebase.json"
+        ],
+        "site": [
+          "project-maoamiga"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

@@ -107,7 +107,7 @@ const Contacts = () => {
             <div className="icon">
               <span>
                 <FontAwesomeIcon className="envelope" icon={faEnvelope} />
-                adm@maoamigace.org
+                contato@maoamigace.org
               </span>
             </div>
 

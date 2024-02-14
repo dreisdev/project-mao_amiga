@@ -233,10 +233,10 @@ const Home = () => {
 
             <button className="button-history">
               {" "}
-              <NavLink className="button-style" to="/about">
+              <a className="button-style" href="/about">
                 {" "}
                 Saiba Mais{" "}
-              </NavLink>{" "}
+              </a>{" "}
             </button>
           </div>
 
@@ -340,8 +340,11 @@ const Home = () => {
                       <p className="donate-text">
                         {projectData.descriptionProject}
                       </p>
-
-                      <button className="donate-btn">Doe para o projeto</button>
+                      <a href="/">
+                        <button className="donate-btn">
+                          Doe para o projeto
+                        </button>
+                      </a>
 
                       <ProgressBar
                         now={
@@ -386,7 +389,8 @@ const Home = () => {
             </h1>
 
             <p className="resume-description">
-              Junte-se a nós e venha fazer de um projeto que transforma vidas!
+              Junte-se a nós e venha fazer parte de um projeto que transforma
+              vidas!
             </p>
           </div>
         </div>
