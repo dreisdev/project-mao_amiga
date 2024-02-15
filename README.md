@@ -10,7 +10,7 @@ Trata-se de um projeto voluntário, que consistiu na criação do site da Associ
 
 # 💻Implementações do frontend:
 
-- Costrução das seguintes páginas: Home, Sobre Nós, Projetos, Galeria, Eventos e Contato;
+- Construção das seguintes páginas: Home, Sobre Nós, Projetos, Galeria, Eventos e Contato;
 
 - Criação de slide dos cards e página inicial com a biblioteca swiper;
 
@@ -18,7 +18,7 @@ Trata-se de um projeto voluntário, que consistiu na criação do site da Associ
 
 - Página de Login;
 
-- Paineis administrativo para cadastrar: Eventos, Projetos e gestão da galeria de fotos;
+- Painéis administrativo para cadastrar: Eventos, Projetos e gestão da galeria de fotos;
 
 - Integração para envio de e-mails de contato com a ferramenta SENDGRID.
 
