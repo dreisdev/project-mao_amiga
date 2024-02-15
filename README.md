@@ -6,7 +6,7 @@ Bem-vindo ao README do projeto Fullstack para o site da Associação Mão Amiga.
 
 ## 🔥 Introdução
 
-Trata-se de um projeto voluntário, que conssistiu na criação do site da Associação Mão Amiga localizada no município de Aquiraz no Ceará.
+Trata-se de um projeto voluntário, que consistiu na criação do site da Associação Mão Amiga localizada no município de Aquiraz no Ceará.
 
 # 💻Implementações do frontend:
 
