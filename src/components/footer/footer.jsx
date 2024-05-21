@@ -10,16 +10,15 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../api/fetchApi";
+
 
 const Footer = () => {
   const [eventsData, setEventsData] = useState([]);
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get(
-        "https://server-maoamiga-api.cyclic.app/events"
-      );
+      const response = await api.get("/events");
 
       setEventsData(response.data);
     } catch (error) {
